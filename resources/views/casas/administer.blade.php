@@ -54,10 +54,9 @@
 
                                                             <a href="{{ route('casa.show', $casa) }}">
                                                                 {{-- arreglar mostrar la primera imagen  --}}
-                                                                {{-- <img src="{{ $casa->getMedia('casas')->first()->getUrl('thumb') }}"
-                                                                    class="avatar avatar-sm me-3" alt="user1"> --}}
-                                                                <img src="{{ $casa->casas }}"
+                                                                <img src="{{ $casa->getMedia('casas')->first()->getUrl('thumb') }}"
                                                                     class="avatar avatar-sm me-3" alt="user1">
+
                                                             </a>
                                                         </div>
                                                         <div class="d-flex flex-column justify-content-center">

@@ -42,9 +42,7 @@ class CasaController extends Controller
 
         $buscar = $request->buscar;
 
-        $casas = Casa::with(['media'])->where('name', 'like', '%' . $buscar . '%')->where('status', 'like', '1')->paginate(6);
-
-
+        $casas = Casa::with(['media'])->where('name', 'like', '%' . $buscar . '%')->where('status', '=', '1')->paginate(6);
         // return $casas;
         return view('casas.index', compact('casas', 'buscar'));
     }
@@ -75,6 +73,7 @@ class CasaController extends Controller
                     $fileAdder->toMediaCollection('casas');
                 });
         }
+
         //back se usa para regresar a la pagina anterior
         return back()->with('status', 'Inmueble creado');
     }

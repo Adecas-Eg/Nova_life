@@ -20,7 +20,7 @@ class DatabaseSeeder extends Seeder
 
         $this->call(RolSeeder::class);
         $this->call(UserSeeder::class);
-        $this->call(CasaSeeder::class);
+        // $this->call(CasaSeeder::class);
 
 
         // DB::table('users')->insert([

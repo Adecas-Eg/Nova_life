@@ -31,14 +31,14 @@
                 enctype="multipart/form-data">
 
                 @csrf
-           
+
 
                 <div class="col-md-10">
                     <div class="card">
                         <div class="card-body">
 
                             <p class="text-uppercase text-sm">Creacion de inmueble</p>
-                            <input type="text" name="geometry"  style="display: none">
+                            <input type="text" name="geometry" style="display: none">
 
                             <div class="row">
                                 <div class="col-md-6">
@@ -325,7 +325,7 @@
 
         </div>
 
-        
+
         @include('layouts.footers.auth.footer')
     </div>
 @endsection

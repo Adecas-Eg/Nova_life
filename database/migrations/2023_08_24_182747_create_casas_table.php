@@ -26,7 +26,7 @@ return new class extends Migration {
             $table->string('pisos');
             $table->string('area');
             $table->string('url_3d');
-            $table->string('casas')->nullable();
+            // $table->string('img')->nullable();
             $table->float('latitud')->nullable();
             $table->float('longitud')->nullable();
             $table->integer('status')->nullable();

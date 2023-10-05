@@ -5,17 +5,11 @@
 @endpush
 
 <style>
-    /*
- * Always set the map height explicitly to define the size of the div element
- * that contains the map.
- */
     #map {
         height: 100%;
     }
 
-    /*
- * Optional: Makes the sample page fill the window.
- */
+
     html,
     body {
         height: 100%;
@@ -165,7 +159,8 @@
                                     {{-- <img src="{{ $casa->getMedia('casas')->first()->getUrl('thumb') }}" alt="Image placeholder"
                                     class="card-img-top"> --}}
 
-                                    <img src="{{ $casa->casas }}" alt="Image placeholder" class="card-img-top">
+                                    <img src="{{ $casa->getMedia('casas')->first()->getUrl('thumb') }}"
+                                        alt="Image placeholder" class="card-img-top">
                                     <div class="card-body pt-0">
                                         <h5 class="card-tittle">
                                             {{ $casa->name }}
