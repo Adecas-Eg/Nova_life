@@ -1,4 +1,3 @@
-
 let autoComplete;
 const auto = document.getElementById('ubicacion');
 let place;
@@ -9,7 +8,7 @@ async function initMap() {
     //@ts-ignore
 
     initAutoComplete();
-
+    mostrar();
 
 
 }
@@ -20,7 +19,7 @@ function initAutoComplete() {
         // marker.position = (place.geometry.location);}
         place = autoComplete.getPlace();
         console.log(place);
-        
+
         let ubicacion = {};
         ubicacion['latitud'] = await place.geometry.location.lat();
         ubicacion['longitud'] = await place.geometry.location.lng();

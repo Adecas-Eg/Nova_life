@@ -9,7 +9,7 @@ use App\Models\User;
 use Illuminate\Contracts\Cache\Store;
 use Illuminate\Http\Request;
 
-// si no selen las imagers configurar app 
+// si no selen las imagers configurar app
 
 class CasaController extends Controller
 {
@@ -43,8 +43,14 @@ class CasaController extends Controller
         $buscar = $request->buscar;
 
         $casas = Casa::with(['media'])->where('name', 'like', '%' . $buscar . '%')->where('status', '=', '1')->paginate(6);
+        foreach ($casas as $casa) {
+            $latitud[] = $casa->latitud;
+            $longitud[] = $casa->longitud;
+        }
+        ;
+
         // return $casas;
-        return view('casas.index', compact('casas', 'buscar'));
+        return view('casas.index', compact('casas', 'buscar', 'latitud', 'longitud'));
     }
 
     /**

@@ -23,6 +23,13 @@
 
 @section('content')
     @include('layouts.navbars.auth.topnav', ['title' => 'Casas'])
+
+    @foreach ($latitud as $lat)
+        <input type="hidden" name="lat[]" value="{{ $lat }}">
+    @endforeach
+    @foreach ($longitud as $lon)
+        <input type="hidden" name="lng[]" value="{{ $lon }}">
+    @endforeach
     <div class="container-fluid py-4">
         <div class="row">
             <div class="col-md-8">
@@ -152,33 +159,70 @@
                     </div>
                 </div>
                 <div class="row">
+
                     @foreach ($casas as $casa)
-                        <div class="col-md-5 mt-4">
-                            <a href="{{ route('casa.show', $casa) }}">
-                                <div class="card card-profile" style="width: 230px">
-                                    {{-- <img src="{{ $casa->getMedia('casas')->first()->getUrl('thumb') }}" alt="Image placeholder"
-                                    class="card-img-top"> --}}
-
-                                    <img src="{{ $casa->getMedia('casas')->first()->getUrl('thumb') }}"
-                                        alt="Image placeholder" class="card-img-top">
-                                    <div class="card-body pt-0">
-                                        <h5 class="card-tittle">
-                                            {{ $casa->name }}
-                                        </h5>
-                                        <div class="h6 mt-4">
-                                            <i class="ni business_briefcase-24 mr-2">area: {{ $casa->tipo_inmueble }}</i>
+                        {{-- poner en pagina principal --}}
+                        {{-- <div class="col-md-6 mt-4">
+                            <div class="card card-profile card-plain">
+                                <div class="row">
+                                    <div class="col-lg-5">
+                                        <a href="javascript:;">
+                                            <div class="position-relative">
+                                                <div class="blur-shadow-image">
+                                                    <img class="w-100 rounded-3 shadow-lg"
+                                                        src="{{ $casa->getMedia('casas')->first()->getUrl('thumb') }}" style="height: 100%;">
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="col-lg-7 ps-0 my-auto">
+                                        <div class="card-body text-left">
+                                            <div class="p-md-0 pt-3">
+                                                <h5 class="font-weight-bolder mb-0">{{$csas}}</h5>
+                                                <p class="text-uppercase text-sm font-weight-bold mb-2">Landscape Architect
+                                                </p>
+                                            </div>
+                                            <p class="mb-4">Success is not final, failure is not fatal: it is the courage
+                                                to
+                                                continue that counts...</p>
+                                            <button type="button"
+                                                class="btn btn-facebook btn-simple btn-lg mb-0 pe-3 ps-2">
+                                                <i class="fab fa-facebook" aria-hidden="true"></i>
+                                            </button>
+                                            <button type="button" class="btn btn-twitter btn-simple btn-lg mb-0 px-2">
+                                                <i class="fab fa-twitter" aria-hidden="true"></i>
+                                            </button>
+                                            <button type="button" class="btn btn-github btn-simple btn-lg mb-0 px-2">
+                                                <i class="fab fa-github" aria-hidden="true"></i>
+                                            </button>
                                         </div>
-
-
-                                        <div class="h6 mt-4">
-                                            <i class="ni business_briefcase-24 mr-2">Ciudad: {{ $casa->ciudad }} </i>
-                                        </div>
-                                        <p class="card-text"><small class="text-body-secondary"> Estrato -
-                                                {{ $casa->estrato }}</small>
-                                        </p>
                                     </div>
                                 </div>
-                            </a>
+                            </div>
+                        </div> --}}
+                        <div class="col-md-5 mt-4">
+                            <div class="card card-profile mt-md-0 mt-5">
+                                <a href="{{ route('casa.show', $casa) }}">
+                                    <div class="p-3">
+                                        <img class="w-100 border-radius-md"
+                                            src="{{ $casa->getMedia('casas')->first()->getUrl('thumb') }}"
+                                            alt="Image placeholder" class="card-img-top">
+                                    </div>
+                                </a>
+                                <div class="card-body blur justify-content-center text-center mx-4 mb-4 border-radius-md">
+                                    <h4 class="mb-0  font-weight-bolder text-dark text-gradient text-uppercase">
+                                        {{ $casa->name }}</h4>
+                                    <p>{{ $casa->ubicacion }}</p>
+                                    <div class="row justify-content-center text-center">
+                                        <div class="col-12 mx-auto">
+                                            <p
+                                                class="mb-0 text-xs font-weight-bolder text-warning text-gradient text-uppercase">
+                                                area desde <b>{{ $casa->area }}m<sup>2</sup></b></p>
+                                            <small>{{ $casa->ciudad }}</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     @endforeach
                 </div>
@@ -186,6 +230,7 @@
             </div>
             <div class="col">
                 <div class=" ">
+
                     <div id="map"></div>
                     <input class="form-control" type="text" id="pac-input" placeholder="ingresa una direcion">
 
