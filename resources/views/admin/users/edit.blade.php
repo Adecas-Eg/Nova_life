@@ -12,7 +12,7 @@
             <div class="card">
                 <div class="card-header pb-0">
                     <div class="d-flex align-items-center">
-                        <p class="mb-0">Editar  Role</p>
+                        <p class="mb-0">Editar Role</p>
                     </div>
                 </div>
                 <div class="card-body">
@@ -29,7 +29,7 @@
                             <div class="form-group">
                                 <label for="example-text-input" class="form-control-label">Correo</label>
                                 <input class="form-control" type="email" name="email"
-                                    value="{{ old('email',  $user->email)  }}">
+                                    value="{{ old('email', $user->email) }}">
                             </div>
                         </div>
 
@@ -59,6 +59,6 @@
 
 
 
-
-        @include('layouts.footers.auth.footer')
-    @endsection
+    </div>
+    @include('layouts.footers.auth.footer')
+@endsection

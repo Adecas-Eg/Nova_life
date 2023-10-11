@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('assets/img/apple-icon.png') }}">
-    <link rel="icon" type="image/png" href="{{ asset('img/favicon. png') }}">
+    <link rel="icon" type="image/png" href="{{ asset('img/icons/flags/BR.png') }}">
     @livewireStyles
     <title>
         Nova Life
@@ -64,6 +64,7 @@
     <script src="{{ asset('/assets/js/core/bootstrap.min.js') }}"></script>
     <script src="{{ asset('/assets/js/plugins/perfect-scrollbar.min.js') }}"></script>
     <script src="{{ asset('/assets/js/plugins/smooth-scrollbar.min.js') }}"></script>
+    <script src="https://unpkg.com/@googlemaps/markerclusterer/dist/index.min.js"></script>
     <script>
         var win = navigator.platform.indexOf('Win') > -1;
         if (win && document.querySelector('#sidenav-scrollbar')) {

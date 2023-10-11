@@ -73,7 +73,7 @@
                                         </div>
                                         <div class="text-center">
                                             <button type="submit"
-                                                class="btn btn-lg btn-dark btn-lg w-100 mt-4 mb-0">Iniciar</button>
+                                                class="btn btn-block bg-gradient-dark mb-3 btn-lg w-100 mt-4 mb-0">Iniciar</button>
                                         </div>
                                     </form>
                                 </div>

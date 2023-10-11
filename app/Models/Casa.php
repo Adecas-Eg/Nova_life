@@ -13,7 +13,7 @@ class Casa extends Model implements HasMedia
 {
     use InteractsWithMedia;
     use HasFactory;
-    protected $guarded =[];  
+    protected $guarded =[];
 
 
     use HasSlug;
@@ -37,7 +37,7 @@ class Casa extends Model implements HasMedia
     public function categories(){
         return $this->belongsToMany('App\Models\Category');
     }
-    
+
     public function getSlugOptions() : SlugOptions
     {
         return SlugOptions::create()
@@ -58,4 +58,4 @@ class Casa extends Model implements HasMedia
     }
 
 
-}   
+}

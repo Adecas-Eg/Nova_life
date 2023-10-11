@@ -17,7 +17,7 @@
 
     <hr class="horizontal dark mt-0">
     {{-- DIV DE DENTRO DE LAS PAGINAS --}}
-    <div class=" navbar-blur  " id="sidenav-collapse-main">
+    <div class=" collapse navbar-collapse  w-auto " id="sidenav-collapse-main">
 
         <ul class="navbar-nav">
             {{-- DASHBOARD DE ADMINISTRADOR --}}

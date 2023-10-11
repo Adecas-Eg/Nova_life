@@ -55,7 +55,8 @@
                                                             <a href="{{ route('casa.show', $casa) }}">
                                                                 {{-- arreglar mostrar la primera imagen  --}}
                                                                 <img src="{{ $casa->getMedia('casas')->first()->getUrl('thumb') }}"
-                                                                    class="avatar avatar-sm me-3" alt="user1">
+                                                                    class="avatar avatar-sm me-3 img  move-on-hover"
+                                                                    alt="user1">
 
                                                             </a>
                                                         </div>
@@ -109,4 +110,6 @@
             </div>
         </div>
     </div>
+    @include('layouts.footers.auth.footer')
+
 @endsection

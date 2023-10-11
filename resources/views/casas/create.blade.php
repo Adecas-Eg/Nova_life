@@ -14,7 +14,6 @@
             {{-- muestra que el inmueble fue creatdo satisfactoriamente --}}
             <div class="px-2 pt-2 col-md-10">
                 @if (session('status'))
-
                     <div class="alert alert-info alert-dismissible fade show" role="alert">
                         <p class="text-white mb-0">{{ session('status') }}</p>
                     </div>
@@ -252,7 +251,7 @@
                                 </div>
 
                                 <button onclick="enviar()" type="submit"
-                                    class="btn btn-primary text-white">Guardar</button>
+                                    class="btn btn-block bg-gradient-dark mb-3">Guardar</button>
 
 
                             </div>

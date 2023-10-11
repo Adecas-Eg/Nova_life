@@ -42,15 +42,14 @@ class CasaController extends Controller
 
         $buscar = $request->buscar;
 
-        $casas = Casa::with(['media'])->where('name', 'like', '%' . $buscar . '%')->where('status', '=', '1')->paginate(6);
-        foreach ($casas as $casa) {
-            $latitud[] = $casa->latitud;
-            $longitud[] = $casa->longitud;
-        }
-        ;
+        $casas = Casa::with(['media'])
+            ->where('name', 'like', '%' . $buscar . '%')
+            ->where('status', '=', '1')
+            ->orderBy('id')
+            ->paginate(6);
 
         // return $casas;
-        return view('casas.index', compact('casas', 'buscar', 'latitud', 'longitud'));
+        return view('casas.index', compact('casas', 'buscar'));
     }
 
     /**
@@ -100,9 +99,6 @@ class CasaController extends Controller
             return view('casas.show', compact('casa', 'comments'));
 
         }
-
-
-
         return view('casas.show', compact('casa'));
 
     }
@@ -137,11 +133,13 @@ class CasaController extends Controller
 
     public function administer()
     {
+        // $recargas = Recarga::orderBy('fecha_recarga','DESC')->with('usuario')->get();
+
 
         $user = User::find(auth()->user()->id);
-        $casas1 = $user->casas;
+        $casas1 = $user->casas->sortByDesc('id');
         foreach ($casas1 as $casa) {
-            $casas[] = $casa->with(['media'])->find($casa->id);
+            ($casas[] = $casa->with(['media'])->find($casa->id));
         }
 
         if (empty($casas)) {

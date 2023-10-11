@@ -24,12 +24,12 @@
 @section('content')
     @include('layouts.navbars.auth.topnav', ['title' => 'Casas'])
 
-    @foreach ($latitud as $lat)
-        <input type="hidden" name="lat[]" value="{{ $lat }}">
-    @endforeach
-    @foreach ($longitud as $lon)
-        <input type="hidden" name="lng[]" value="{{ $lon }}">
-    @endforeach
+
+    <script>
+        window.latitud = @php echo json_encode($casas) @endphp;
+    </script>
+
+
     <div class="container-fluid py-4">
         <div class="row">
             <div class="col-md-8">
@@ -159,7 +159,6 @@
                     </div>
                 </div>
                 <div class="row">
-
                     @foreach ($casas as $casa)
                         {{-- poner en pagina principal --}}
                         {{-- <div class="col-md-6 mt-4">
@@ -204,20 +203,20 @@
                             <div class="card card-profile mt-md-0 mt-5">
                                 <a href="{{ route('casa.show', $casa) }}">
                                     <div class="p-3">
-                                        <img class="w-100 border-radius-md"
+                                        <img class="w-100 border-radius-lg img move-on-hover"
                                             src="{{ $casa->getMedia('casas')->first()->getUrl('thumb') }}"
                                             alt="Image placeholder" class="card-img-top">
                                     </div>
                                 </a>
                                 <div class="card-body blur justify-content-center text-center mx-4 mb-4 border-radius-md">
-                                    <h4 class="mb-0  font-weight-bolder text-dark text-gradient text-uppercase">
+                                    <h4 class="mb-0  font-weigh-bolder text-dark text-gradient text-uppercase">
                                         {{ $casa->name }}</h4>
                                     <p>{{ $casa->ubicacion }}</p>
                                     <div class="row justify-content-center text-center">
                                         <div class="col-12 mx-auto">
                                             <p
-                                                class="mb-0 text-xs font-weight-bolder text-warning text-gradient text-uppercase">
-                                                area desde <b>{{ $casa->area }}m<sup>2</sup></b></p>
+                                                class="mb-0 text-xs font-weight-bolder text-warning text-gradient ">
+                                                Area <b>{{ $casa->area }}m<sup>2</sup></b></p>
                                             <small>{{ $casa->ciudad }}</small>
                                         </div>
                                     </div>
@@ -232,41 +231,12 @@
                 <div class=" ">
 
                     <div id="map"></div>
-                    <input class="form-control" type="text" id="pac-input" placeholder="ingresa una direcion">
-
                 </div>
             </div>
         </div>
     </div>
-    @include('layouts.footers.auth.footer')
-    </div>
-
-    <input class="form-control" type="text" id="autoComplete" placeholder="ingresa una uri">
-
-    <div class="container">
 
 
-
-    </div>
-
-
-    <div class="container-fluid py-4">
-        <div class="row">
-
-
-
-            {{-- acomodar foreach --}}
-        </div>
-        <div class="row">
-
-
-        </div>
-
-        {{-- poner la api del mapa aqui  --}}
-        <div class="pagination justify-content-center mt-4 ">
-            {{ $casas->links() }}
-        </div>
-    </div>
     @include('layouts.footers.auth.footer')
     </div>
 @endsection

@@ -41,7 +41,7 @@
                                     <span class="ms-2">Settings</span>
                                 </a>
                             </li>
-                        </ul> 
+                        </ul>
                     </div>
                 </div> --}}
                 </div>
@@ -68,7 +68,7 @@
                         <div class="card-header pb-0">
                             <div class="d-flex align-items-center">
                                 <p class="mb-0">Editar perfil</p>
-                                <button type="submit" class="btn btn-primary btn-sm ms-auto">Guardar</button>
+                                <button type="submit" class="btn btn-block bg-gradient-primary mb-3 btn-sm ms-auto">Guardar</button>
                             </div>
                         </div>
                         <div class="card-body">

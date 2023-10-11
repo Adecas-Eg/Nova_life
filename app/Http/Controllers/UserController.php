@@ -20,7 +20,10 @@ class UserController extends Controller
     public function index(Request $request)
     {
         $buscar = $request->buscar;
-        $users = User::where('email', 'like', '%' . $buscar . '%')->orWhere('username', 'like', '%' . $buscar . '%')->paginate(6);
+        $users = User::where('email', 'like', '%' . $buscar . '%')
+            ->orWhere('username', 'like', '%' . $buscar . '%')
+            ->orderBy('id', 'DESC')
+            ->paginate(6);
         return view('admin.users.index', compact('users', 'buscar'));
     }
 

@@ -1,69 +1,56 @@
-
 let map;
-const position = { lat: 10.39972, lng: -75.51444 };
-let autoComplete;
 let marker;
-const auto = document.getElementById('pac-input');
-let locations = [];
+const image =
+    "https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png";
 
-
-//iniciar maap
 async function initMap() {
+    // The location of Uluru
+    const position = { lat: 10.39972, lng: -75.51444 };
+    // Request needed libraries.
     //@ts-ignore
-    const { Map } = await google.maps.importLibrary("maps")
+    const { Map } = await google.maps.importLibrary("maps");
     const { AdvancedMarkerView } = await google.maps.importLibrary("marker");
-    var infoWindow = new google.maps.InfoWindow(), marker, i;
+
+    // The map, centered at Uluru
     map = new Map(document.getElementById("map"), {
-        zoom: 12,
+        zoom: 11,
         center: position,
         mapId: "DEMO_MAP_ID",
-        lavel: "C"
     });
 
-    marker = new AdvancedMarkerView({
-        map: map,
+    // The marker, positioned at Uluru
+    // marker = new AdvancedMarkerView({
+    //     map: map,
+    //     position: position,
+    //     title: "Uluru",
+    // });
+    mostrar();
+    marker = new google.maps.Marker({
+        map,
         position: position,
-        title: "Cartagena",
-    });
-    initAutoComplete()
-}
-
-const markerView = new google.maps.marker.AdvancedMarkerView({
-    map,
-    position: { lat: 37.4239163, lng: -122.0947209 },
-});
-
-//autocompletado
-function initAutoComplete() {
-    autoComplete = new google.maps.places.Autocomplete(auto)
-    autoComplete.addListener('place_changed', function () {
-        let place = autoComplete.getPlace();
-        console.log(place);
-        map.setCenter(place.geometry.location);
-        marker.position = (place.geometry.location);
-        mostrar();
+        icon: image
     });
 
 }
 
 
-//recyperar arrays
+
 function mostrar() {
-    let latitud, longitud = new Array();
-    latitud = document.querySelectorAll(
-        'input[name="lat[]"]'
-    );
-    longitud = document.querySelectorAll(
-        'input[name="lng[]"]'
-    );
-    latitud.forEach((ele, i) => {
-        locations.push({
-            lat: (ele.parentNode.parentNode.id,
-                parseFloat(ele.value)), lng: (longitud[i].parentNode.parentNode.id,
-                    parseFloat(longitud[i].value))
+
+    window.latitud.data.forEach((position) => {
+        console.log(position)
+        const marker = new google.maps.Marker({
+            position: { lat: parseFloat(position.latitud), lng: parseFloat(position.longitud) },
+            map,
+            label: "C",
+            title: "Hello World!",
+            icon: image
         });
-    })
+    });
+
 }
+initMap()
 
 
-initMap();
+
+
