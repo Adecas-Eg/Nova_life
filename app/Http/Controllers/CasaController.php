@@ -69,8 +69,10 @@ class CasaController extends Controller
         //logica de multiples imagens con librerias
         $casa->user_id = auth()->user()->id;
         $casa->status = 1;
-        $casa->latitud = $geometry->latitud;
-        $casa->longitud = $geometry->longitud;
+        if (!$geometry) {
+            $casa->latitud = $geometry->latitud;
+            $casa->longitud = $geometry->longitud;
+        }
         $casa->save();
         if (request()->hasFile('imagenes')) {
             $casa->addMultipleMediaFromRequest(['imagenes'])
@@ -88,15 +90,12 @@ class CasaController extends Controller
      */
     public function show(Casa $casa)
     {
-
-
-        $user = User::find(auth()->user()->id);
-
         $comments = Comment::get()->where('casa_id', $casa->id);
 
         $casa->with(['media'])->find($casa->id);
         if (!empty($comments)) {
-            return view('casas.show', compact('casa', 'comments'));
+            $user = User::find($casa->user_id);
+            return view('casas.show', compact('casa', 'comments', 'user'));
 
         }
         return view('casas.show', compact('casa'));

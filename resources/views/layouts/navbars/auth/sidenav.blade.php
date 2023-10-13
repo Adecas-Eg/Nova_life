@@ -10,7 +10,7 @@
             {{-- //IMAGEN Y LOGO --}}
 
             {{-- <img src="{{ asset('./img/logo-ct-dark.png') }}" class="navbar-brand-img h-100" alt="main_logo"> --}}
-            <span class="ms-1 font-weight-bold"> NOVA LIFA :)</span>
+            <span class="ms-1 font-weight-bold"> NOVA LIFE :)</span>
         </a>
     </div>
 
@@ -82,7 +82,7 @@
 
             <li class="nav-item mt-3 d-flex align-items-center">
                 <div class="ps-4">
-                    <i class="fa fa-home text-info text-sm opacity-10"></i>
+                    <i class="fa fa-home text-info text-gradient text-sm opacity-10"></i>
                 </div>
                 <h6 class="ms-2 text-uppercase text-xs font-weight-bolder opacity-6 mb-0">Inmuebles</h6>
             </li>
@@ -112,7 +112,7 @@
                         href="{{ route('casa.create') }}">
                         <div
                             class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                            <i class="ni ni-fat-add text-warning text-sm opacity-10"></i>
+                            <i class="fa-solid fa-house-medical text-warning text-gradient text-sm opacity-10"></i>
                         </div>
                         <span class="nav-link-text ms-1">Publicar Inmuebles</span>
                     </a>
@@ -127,7 +127,7 @@
                         href="{{ route('casa.administer') }}">
                         <div
                             class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                            <i class="fa fa-building-o text-dark text-sm opacity-10"></i>
+                            <i class="fa-solid fa-building-user text-dark text-gradient text-sm opacity-10"></i>
                         </div>
                         <span class="nav-link-text ms-1">Administrar Inmuebles</span>
                     </a>
@@ -172,7 +172,7 @@
 
             {{-- ACOOUNNT LINK --}}
             <li class="nav-item mt-3">
-                <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Account pages</h6>
+                <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Perfil</h6>
             </li>
 
             {{-- PROFILE LINK --}}

@@ -151,7 +151,7 @@
                                         </div>
 
                                     </ul>
-                                    <button class="input-group-text bg-info text-body"><i class="fas fa-search text-white"
+                                    <button class="input-group-text bg-gradient-dark text-body"><i class="fas fa-search text-white"
                                             aria-hidden="true"></i></button>
                                 </div>
                             </form>

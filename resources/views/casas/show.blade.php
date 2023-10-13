@@ -28,122 +28,26 @@
                     @foreach ($casa->media as $media)
                         <div class="carousel-item @if ($media->order_column == 1) active @endif">
                             <div class="page-header min-vh-75 m-3 border-radius-xl"
-                                style="background-image: url('{{ $media->getUrl('thumb') }}');">
+                                style="background-image: url('{{ $media->getUrl() }}');">
+                            </div>
 
-                                <div class="container">
-                                    <div class="row">
-                                        <div class="col-lg-6 my-auto">
-                                            <h4 class="text-white mb-0 fadeIn1 fadeInBottom">Pricing Plans</h4>
-                                            <h1 class="text-white fadeIn2 fadeInBottom">Work with the rockets</h1>
-                                            <p class="lead text-white opacity-8 fadeIn3 fadeInBottom">Wealth creation is an
-                                                evolutionarily recent positive-sum game. Status is an old zero-sum game.
-                                                Those
-                                                attacking
-                                                wealth creation are often just seeking status.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="container-fluid px-3">
-                                <div class="row">
-                                    <div class="col-lg-6">
-                                        <div class="info-horizontal bg-gradient-primary border-radius-xl p-5">
-                                            <div class="icon">
-                                                <svg width="25px" height="25px" viewBox="0 0 42 42" version="1.1"
-                                                    xmlns="http://www.w3.org/2000/svg"
-                                                    xmlns:xlink="http://www.w3.org/1999/xlink">
-                                                    <title>office</title>
-                                                    <g id="Basic-Elements" stroke="none" stroke-width="1" fill="none"
-                                                        fill-rule="evenodd">
-                                                        <g id="Rounded-Icons"
-                                                            transform="translate(-1869.000000, -293.000000)" fill="#FFFFFF"
-                                                            fill-rule="nonzero">
-                                                            <g id="Icons-with-opacity"
-                                                                transform="translate(1716.000000, 291.000000)">
-                                                                <g id="office"
-                                                                    transform="translate(153.000000, 2.000000)">
-                                                                    <path
-                                                                        d="M12.25,17.5 L8.75,17.5 L8.75,1.75 C8.75,0.78225 9.53225,0 10.5,0 L31.5,0 C32.46775,0 33.25,0.78225 33.25,1.75 L33.25,12.25 L29.75,12.25 L29.75,3.5 L12.25,3.5 L12.25,17.5 Z"
-                                                                        id="Path" opacity="0.6"></path>
-                                                                    <path
-                                                                        d="M40.25,14 L24.5,14 C23.53225,14 22.75,14.78225 22.75,15.75 L22.75,38.5 L19.25,38.5 L19.25,22.75 C19.25,21.78225 18.46775,21 17.5,21 L1.75,21 C0.78225,21 0,21.78225 0,22.75 L0,40.25 C0,41.21775 0.78225,42 1.75,42 L40.25,42 C41.21775,42 42,41.21775 42,40.25 L42,15.75 C42,14.78225 41.21775,14 40.25,14 Z M12.25,36.75 L7,36.75 L7,33.25 L12.25,33.25 L12.25,36.75 Z M12.25,29.75 L7,29.75 L7,26.25 L12.25,26.25 L12.25,29.75 Z M35,36.75 L29.75,36.75 L29.75,33.25 L35,33.25 L35,36.75 Z M35,29.75 L29.75,29.75 L29.75,26.25 L35,26.25 L35,29.75 Z M35,22.75 L29.75,22.75 L29.75,19.25 L35,19.25 L35,22.75 Z"
-                                                                        id="Shape"></path>
-                                                                </g>
-                                                            </g>
-                                                        </g>
-                                                    </g>
-                                                </svg>
-                                            </div>
-                                            <div class="description ps-5">
-                                                <h5 class="text-white">Descripción general</h5>
-                                                <p class="text-white"> {{ $casa->descripcion }} </p>
-                                                <a href="javascript:;" class="text-white icon-move-right">
-                                                    Mas informacion
-                                                    <i class="fas fa-arrow-right text-sm ms-1" aria-hidden="true"></i>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <div class="info-horizontal bg-light border-radius-xl p-5">
-                                            <div class="icon">
-                                                <svg class="text-primary" width="25px" height="25px" viewBox="0 0 40 40"
-                                                    version="1.1" xmlns="http://www.w3.org/2000/svg"
-                                                    xmlns:xlink="http://www.w3.org/1999/xlink">
-                                                    <title>ungroup</title>
-                                                    <g id="Basic-Elements" stroke="none" stroke-width="1" fill="none"
-                                                        fill-rule="evenodd">
-                                                        <g id="Rounded-Icons"
-                                                            transform="translate(-2170.000000, -442.000000)" fill="#FFFFFF"
-                                                            fill-rule="nonzero">
-                                                            <g id="Icons-with-opacity"
-                                                                transform="translate(1716.000000, 291.000000)">
-                                                                <g id="ungroup"
-                                                                    transform="translate(454.000000, 151.000000)">
-                                                                    <path class="color-background"
-                                                                        d="M38.1818182,10.9090909 L32.7272727,10.9090909 L32.7272727,30.9090909 C32.7272727,31.9127273 31.9127273,32.7272727 30.9090909,32.7272727 L10.9090909,32.7272727 L10.9090909,38.1818182 C10.9090909,39.1854545 11.7236364,40 12.7272727,40 L38.1818182,40 C39.1854545,40 40,39.1854545 40,38.1818182 L40,12.7272727 C40,11.7236364 39.1854545,10.9090909 38.1818182,10.9090909 Z"
-                                                                        id="Path"></path>
-                                                                    <path class="color-foreground"
-                                                                        d="M27.2727273,29.0909091 L1.81818182,29.0909091 C0.812727273,29.0909091 0,28.2781818 0,27.2727273 L0,1.81818182 C0,0.814545455 0.812727273,0 1.81818182,0 L27.2727273,0 C28.2781818,0 29.0909091,0.814545455 29.0909091,1.81818182 L29.0909091,27.2727273 C29.0909091,28.2781818 28.2781818,29.0909091 27.2727273,29.0909091 Z"
-                                                                        id="Path"></path>
-                                                                </g>
-                                                            </g>
-                                                        </g>
-                                                    </g>
-                                                </svg>
-                                            </div>
-                                            <div class="description ps-5">
-                                                <h5>Brave web browser</h5>
-                                                <p>The Arctic Ocean freezes every winter and much of the sea-ice then thaws
-                                                    every
-                                                    summer, and that process will continue whatever.</p>
-                                                <a href="javascript:;" class="text-primary icon-move-right">
-                                                    Mas informacion
-                                                    <i class="fas fa-arrow-right text-sm ms-1" aria-hidden="true"></i>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                     @endforeach
+
                 </div>
                 <div class="min-vh-75 position-absolute w-100 top-0">
-                    <a class="carousel-control-prev" href="#carouselExampleControls" role="button"
-                        data-bs-slide="prev">
+                    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-bs-slide="prev">
                         <span class="carousel-control-prev-icon position-absolute bottom-50" aria-hidden="true"></span>
                         <span class="visually-hidden">Previous</span>
                     </a>
-                    <a class="carousel-control-next" href="#carouselExampleControls" role="button"
-                        data-bs-slide="next">
+                    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-bs-slide="next">
                         <span class="carousel-control-next-icon position-absolute bottom-50" aria-hidden="true"></span>
                         <span class="visually-hidden">Next</span>
                     </a>
                 </div>
             </div>
-        </div>
 
+        </div>
         <div id="div2" class="oculto"style="display: none ">
             <div class="card card-profile card-plain mt-4 ">
                 <div class="card-body text-center bg-white shadow border-radius-lg p-3">
@@ -153,8 +57,185 @@
 
                 </div>
             </div>
-
         </div>
+
+        {{-- row barra datos prevos --}}
+        <div class="row border text-center align-content-center  border-4 border-radius-xl p-3 mt-4">
+
+            <div class="col-md-4  border-end-md ">
+
+                <i class="  text-dark  fa-solid fa-chart-area fa-xl  mx-1 "></i>
+                <p class=" text-sm  ">
+                    Area Contruida <b>{{ $casa->area }}m<sup>2</sup></b></p>
+            </div>
+
+            <div class="col-md-2  border-end">
+                <b>{{ $casa->pisos }} </b><i class="  text-dark fa-solid fa-bed  fa-xl mx-1"></i>
+                <p class=" text-sm  ">
+                    Habitaciones</p>
+            </div>
+            <div class="col-md-3">
+                <p class=" text-sm  mt-3">
+                    Baños <b> {{ $casa->baños }} </b>
+                    <i class="fa-solid fa-bath  text-dark fa-xl mx-1"></i>
+                </p>
+            </div>
+
+
+            <div class="col-md-3 border-start">
+                <div class="mt-3">
+                    <i class="fa-solid fa-chart-simple fa-fade text-dark fa-xl mx-1 "></i>
+                    <small class=" text-sm  mt-3">
+                        Estrato <b> {{ $casa->estrato }} </b>
+                    </small>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-1 mt-4">
+            <div class="">
+                <div class="row">
+                    <div class="col-md-10 mx-auto">
+                        <div class="accordion" id="accordionRental">
+                            <div class="accordion-item mb-3">
+                                <h6 class="accordion-header" id="headingOne">
+                                    <button class="accordion-button border-bottom font-weight-bold collapsed" type="button"
+                                        data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false"
+                                        aria-controls="collapseOne">
+                                        How do I order?
+                                        <i class="collapse-close fa fa-plus text-xs pt-1 position-absolute end-0 me-3"
+                                            aria-hidden="true"></i>
+                                        <i class="collapse-open fa fa-minus text-xs pt-1 position-absolute end-0 me-3"
+                                            aria-hidden="true"></i>
+                                    </button>
+                                </h6>
+                                <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
+                                    data-bs-parent="#accordionRental" style="">
+                                    <div class="accordion-body text-sm opacity-8">
+                                        We’re not always in the position that we want to be at. We’re constantly
+                                        growing. We’re constantly making mistakes. We’re constantly trying to express
+                                        ourselves and actualize our dreams. If you have the opportunity to play this
+                                        game
+                                        of life you need to appreciate every moment. A lot of people don’t appreciate
+                                        the moment until it’s passed.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item mb-3">
+                                <h5 class="accordion-header" id="headingTwo">
+                                    <button class="accordion-button border-bottom font-weight-bold" type="button"
+                                        data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false"
+                                        aria-controls="collapseTwo">
+                                        How can i make the payment?
+                                        <i class="collapse-close fa fa-plus text-xs pt-1 position-absolute end-0 me-3"
+                                            aria-hidden="true"></i>
+                                        <i class="collapse-open fa fa-minus text-xs pt-1 position-absolute end-0 me-3"
+                                            aria-hidden="true"></i>
+                                    </button>
+                                </h5>
+                                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                                    data-bs-parent="#accordionRental">
+                                    <div class="accordion-body text-sm opacity-8">
+                                        It really matters and then like it really doesn’t matter. What matters is the
+                                        people who are sparked by it. And the people who are like offended by it, it
+                                        doesn’t matter. Because it's about motivating the doers. Because I’m here to
+                                        follow my dreams and inspire other people to follow their dreams, too.
+                                        <br>
+                                        We’re not always in the position that we want to be at. We’re constantly
+                                        growing. We’re constantly making mistakes. We’re constantly trying to express
+                                        ourselves and actualize our dreams. If you have the opportunity to play this
+                                        game of life you need to appreciate every moment. A lot of people don’t
+                                        appreciate the moment until it’s passed.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item mb-3">
+                                <h5 class="accordion-header" id="headingThree">
+                                    <button class="accordion-button border-bottom font-weight-bold" type="button"
+                                        data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false"
+                                        aria-controls="collapseThree">
+                                        How much time does it take to receive the order?
+                                        <i class="collapse-close fa fa-plus text-xs pt-1 position-absolute end-0 me-3"
+                                            aria-hidden="true"></i>
+                                        <i class="collapse-open fa fa-minus text-xs pt-1 position-absolute end-0 me-3"
+                                            aria-hidden="true"></i>
+                                    </button>
+                                </h5>
+                                <div id="collapseThree" class="accordion-collapse collapse"
+                                    aria-labelledby="headingThree" data-bs-parent="#accordionRental">
+                                    <div class="accordion-body text-sm opacity-8">
+                                        The time is now for it to be okay to be great. People in this world shun people
+                                        for being great. For being a bright color. For standing out. But the time is now
+                                        to be okay to be the greatest you. Would you believe in what you believe in, if
+                                        you were the only one who believed it?
+                                        If everything I did failed - which it doesn't, it actually succeeds - just the
+                                        fact that I'm willing to fail is an inspiration. People are so scared to lose
+                                        that they don't even try. Like, one thing people can't say is that I'm not
+                                        trying, and I'm not trying my hardest, and I'm not trying to do the best way I
+                                        know how.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item mb-3">
+                                <h5 class="accordion-header" id="headingFour">
+                                    <button class="accordion-button border-bottom font-weight-bold" type="button"
+                                        data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false"
+                                        aria-controls="collapseFour">
+                                        Can I resell the products?
+                                        <i class="collapse-close fa fa-plus text-xs pt-1 position-absolute end-0 me-3"
+                                            aria-hidden="true"></i>
+                                        <i class="collapse-open fa fa-minus text-xs pt-1 position-absolute end-0 me-3"
+                                            aria-hidden="true"></i>
+                                    </button>
+                                </h5>
+                                <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour"
+                                    data-bs-parent="#accordionRental">
+                                    <div class="accordion-body text-sm opacity-8">
+                                        I always felt like I could do anything. That’s the main thing people are
+                                        controlled by! Thoughts- their perception of themselves! They're slowed down by
+                                        their perception of themselves. If you're taught you can’t do anything, you
+                                        won’t do anything. I was taught I could do everything.
+                                        <br><br>
+                                        If everything I did failed - which it doesn't, it actually succeeds - just the
+                                        fact that I'm willing to fail is an inspiration. People are so scared to lose
+                                        that they don't even try. Like, one thing people can't say is that I'm not
+                                        trying, and I'm not trying my hardest, and I'm not trying to do the best way I
+                                        know how.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item mb-3">
+                                <h5 class="accordion-header" id="headingFifth">
+                                    <button class="accordion-button border-bottom font-weight-bold" type="button"
+                                        data-bs-toggle="collapse" data-bs-target="#collapseFifth" aria-expanded="false"
+                                        aria-controls="collapseFifth">
+                                        Where do I find the shipping details?
+                                        <i class="collapse-close fa fa-plus text-xs pt-1 position-absolute end-0 me-3"
+                                            aria-hidden="true"></i>
+                                        <i class="collapse-open fa fa-minus text-xs pt-1 position-absolute end-0 me-3"
+                                            aria-hidden="true"></i>
+                                    </button>
+                                </h5>
+                                <div id="collapseFifth" class="accordion-collapse collapse"
+                                    aria-labelledby="headingFifth" data-bs-parent="#accordionRental">
+                                    <div class="accordion-body text-sm opacity-8">
+                                        There’s nothing I really wanted to do in life that I wasn’t able to get good at.
+                                        That’s my skill. I’m not really specifically talented at anything except for the
+                                        ability to learn. That’s what I do. That’s what I’m here for. Don’t be afraid to
+                                        be wrong because you can’t learn anything from a compliment.
+                                        I always felt like I could do anything. That’s the main thing people are
+                                        controlled by! Thoughts- their perception of themselves! They're slowed down by
+                                        their perception of themselves. If you're taught you can’t do anything, you
+                                        won’t do anything. I was taught I could do everything.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         {{-- comentarios  mejorar --}}
         <section>
             <div class="container my-5 py-5">
@@ -167,11 +248,11 @@
                                 <form action="{{ route('comment.store', $casa->id) }}" method="post">
                                     @csrf
                                     <div class="d-flex text-body-secondary  ">
-                                        <textarea id="comment"name="comment" class="form-control  mb-0 small lh-sm border-bottom" style="resize:none">
+                                        <textarea name="comment" class="form-control  mb-0 small lh-sm border-bottom" style="resize:none">
                                                    </textarea>
                                     </div>
                                     <div class="d-flex text-body-secondary pt-3 justify-content-end align-content-end">
-                                        <input type="submit" class="btn btn-outline-primary btn-sm lh-sm" id="prueba"
+                                        <input type="submit" class="btn  bg-gradient-dark btn-sm lh-sm" id="prueba"
                                             value="Confirmar">
                                     </div>
                                 </form>
@@ -212,7 +293,8 @@
                                             aria-labelledby="exampleModdcalLabel" aria-hidden="true">
                                             <div class="modal-dialog">
                                                 <div class="modal-content">
-                                                    <form action="{{ route('comment.update', $comment) }}" method="post">
+                                                    <form action="{{ route('comment.update', $comment) }}"
+                                                        method="post">
                                                         @csrf
                                                         @method('PATCH')
                                                         <div class="modal-header">

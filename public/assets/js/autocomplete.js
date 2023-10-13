@@ -8,67 +8,26 @@ async function initMap() {
     //@ts-ignore
 
     initAutoComplete();
-    mostrar();
 
 
 }
 function initAutoComplete() {
     autoComplete = new google.maps.places.Autocomplete(auto)
     autoComplete.addListener('place_changed', async function () {
-        // map.setCenter(place.geometry.location);
+        // para cambiar los marcadores ocn un imput map.setCenter(place.geometry.location);
         // marker.position = (place.geometry.location);}
+        //objeto place y ubicacion
         place = autoComplete.getPlace();
-        console.log(place);
-
         let ubicacion = {};
         ubicacion['latitud'] = await place.geometry.location.lat();
         ubicacion['longitud'] = await place.geometry.location.lng();
         ubicacion['dirrecion'] = await place.formatted_address;
-        console.log(ubicacion);
+        // mandamos los valores en formato json a input geometry 
         document.getElementsByName('geometry')[0].setAttribute('value', JSON.stringify(ubicacion));
         document.getElementsByName('geometry')[0].value = JSON.stringify(ubicacion);
         console.log(document.getElementsByName('geometry')[0].value);
+        auto.value = place.formatted_address;
     });
 
 }
-
-
-
-initMap()
-
-
-
-
-// let formdata = new FormData(document.getElementById('form'));
-// console.log(formdata);
-// return await fetch(document.getElementById(idForm).action, {
-//     method: 'POST',
-//     body: formdata
-// }).then(response => response.json).then(data => { return data; }).catch();
-
-
-//     // Inject HTML UI.
-//     const selectedPlaceTitle = document.createElement("p");
-
-//     selectedPlaceTitle.textContent = "";
-//     document.body.appendChild(selectedPlaceTitle);
-
-//     const selectedPlaceInfo = document.createElement("pre");
-
-//     selectedPlaceInfo.textContent = "";
-//     document.body.appendChild(selectedPlaceInfo);
-//     // Add the gmp-placeselect listener, and display the results.
-//     pac.addListener("gmp-placeselect", async ({ place }) => {
-//         await place.fetchFields({
-//             fields: ["displayName", "formattedAddress", "location"],
-//         });
-//         selectedPlaceTitle.textContent = "Selected Place:";
-//         selectedPlaceInfo.textContent = JSON.stringify(
-//             place.toJSON(),
-//       /* replacer */ null,
-//       /* space */ 2,
-//         );
-//     });
-// }
-
-
+initMap();

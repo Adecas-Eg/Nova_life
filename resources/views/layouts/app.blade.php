@@ -10,6 +10,7 @@
     <title>
         Nova Life
     </title>
+
     <!--     Fonts and icons     -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
     <!-- Nucleo Icons -->
@@ -20,7 +21,7 @@
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBTj4coD-nVKAVxCWCn-wsnTIDRzMZQk-c&callback=console.debug&libraries=places,marker&v=beta">
     </script>
     <!-- Font Awesome Icons -->
-    <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/f3f0a010ab.js" crossorigin="anonymous"></script>
 
     <link href="{{ asset('assets/css/nucleo-svg.css') }}" rel="stylesheet" />
     <!-- CSS Files -->
@@ -78,6 +79,7 @@
 
     <!-- Github buttons -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
+
     <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
     <script src="{{ asset('assets/js/argon-dashboard.js') }}"></script>
     <script src="{{ asset('assets/js/plugins/multipart.js') }}"></script>
