@@ -40,7 +40,7 @@ class UserProfileController extends Controller
             'about' => $request->get('about')
         ]);
 
-        
-        return back()->with('status', 'Profile succesfully updated');
+
+        return back()->with('info', 'Se ha actualizado el parfil exitosamente');
     }
 }

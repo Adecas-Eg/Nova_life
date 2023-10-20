@@ -5,7 +5,7 @@
     <div class="col-md-10">
         <div class="row">
             @if (session('info'))
-                <div class="alert alert-info alert-dismissible fade show" role="alert">
+                <div class="alert alert-info mx-3  alert-dismissible fade show" role="alert">
                     <p class="text-white mb-0">{{ session('info') }}</p>
                 </div>
             @endif

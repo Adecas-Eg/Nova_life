@@ -5,16 +5,17 @@
     <div class="container-fluid py-4">
         <div class="row">
             <div class="px-2 pt-2 col-md-10">
-                @if (session('status'))
-                    <div class="alert alert-info alert-dismissible fade show" role="alert">
-                        <p class="text-white mb-0">{{ session('status') }}</p>
-                    </div>
-                @endif
-                @if ($message = session()->has('error'))
-                    <div class="alert alert-danger" role="alert">
-                        <p class="text-white mb-0">{{ session('status') }}</p>
-                    </div>
-                @endif
+                @if (session('info'))
+                <div class="alert alert-info mx-3 alert-dismissible fade show" role="alert">
+                    <span class="alert-icon alert text-white"><i class="ni ni-like-2"></i></span>
+                    <span class="text-white mb-0">{{ session('info') }}</span>
+                </div>
+            @endif
+            @if ($message = session()->has('error'))
+                <div class="alert alert-danger" role="alert">
+                    <p class="text-white mb-0">{{ session('info') }}</p>
+                </div>
+            @endif
 
             </div>
             <div class="col-12">
@@ -27,11 +28,11 @@
                     <div class="card-header pb-0">
                         <h6>Usuarios</h6>
                         <form class="form">
-                            <div class="input-group">
-                                <input type="text" name="buscar" class="form-control border border-secondary"
+                            <div class="input-group border border-dark">
+                                <input type="text" name="buscar" class="form-control "
                                     placeholder="email" value="{{ $buscar }}">
-                                <button class="input-group-text bg-info text-body"><i class="fas fa-search text-white"
-                                        aria-hidden="true"></i></button>
+                                <button class="input-group-text bg-gradient-dark text-body"><i
+                                        class="fas fa-search text-white" aria-hidden="true"></i></button>
                             </div>
                         </form>
                     </div>
@@ -98,7 +99,7 @@
                                     @endforeach
                                 </tbody>
                             </table>
-                            <div class="pagination card-footer justify-content-center">
+                            <div class="pagination pagination-dark card-footer justify-content-center">
                                 {{ $users->links() }}
                             </div>
                         </div>

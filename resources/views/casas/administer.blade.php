@@ -8,14 +8,15 @@
     <div class="container-fluid py-4">
         <div class="row">
             <div class="px-2 pt-2 col-md-10">
-                @if (session('status'))
-                    <div class="alert alert-info alert-dismissible fade show" role="alert">
-                        <p class="text-white mb-0">{{ session('status') }}</p>
+                @if (session('info'))
+                    <div class="alert alert-info mx-3 alert-dismissible fade show" role="alert">
+                        <span class="alert-icon alert text-white"><i class="ni ni-like-2"></i></span>
+                        <span class="text-white mb-0">{{ session('info') }}</span>
                     </div>
                 @endif
                 @if ($message = session()->has('error'))
                     <div class="alert alert-danger" role="alert">
-                        <p class="text-white mb-0">{{ session('status') }}</p>
+                        <p class="text-white mb-0">{{ session('info') }}</p>
                     </div>
                 @endif
 

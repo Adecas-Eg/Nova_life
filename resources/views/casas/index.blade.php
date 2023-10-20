@@ -7,14 +7,7 @@
 <style>
     #map {
         height: 100%;
-    }
 
-
-    html,
-    body {
-        height: 100%;
-        margin: 0;
-        padding: 0;
     }
 </style>
 
@@ -32,7 +25,7 @@
 
     <div class="container-fluid py-4">
         <div class="row">
-            <div class="col-md-8">
+            <div class="col-8">
                 <div class="row">
                     <div class="col-lg-10 text-center mx-auto mt-5 pt-3">
                         <div class="ms-md-auto pe-md-3 d-flex align-items-center">
@@ -151,8 +144,8 @@
                                         </div>
 
                                     </ul>
-                                    <button class="input-group-text bg-gradient-dark text-body"><i class="fas fa-search text-white"
-                                            aria-hidden="true"></i></button>
+                                    <button class="input-group-text bg-gradient-dark text-body"><i
+                                            class="fas fa-search text-white" aria-hidden="true"></i></button>
                                 </div>
                             </form>
                         </div>
@@ -160,52 +153,13 @@
                 </div>
                 <div class="row">
                     @foreach ($casas as $casa)
-                        {{-- poner en pagina principal --}}
-                        {{-- <div class="col-md-6 mt-4">
-                            <div class="card card-profile card-plain">
-                                <div class="row">
-                                    <div class="col-lg-5">
-                                        <a href="javascript:;">
-                                            <div class="position-relative">
-                                                <div class="blur-shadow-image">
-                                                    <img class="w-100 rounded-3 shadow-lg"
-                                                        src="{{ $casa->getMedia('casas')->first()->getUrl('thumb') }}" style="height: 100%;">
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="col-lg-7 ps-0 my-auto">
-                                        <div class="card-body text-left">
-                                            <div class="p-md-0 pt-3">
-                                                <h5 class="font-weight-bolder mb-0">{{$csas}}</h5>
-                                                <p class="text-uppercase text-sm font-weight-bold mb-2">Landscape Architect
-                                                </p>
-                                            </div>
-                                            <p class="mb-4">Success is not final, failure is not fatal: it is the courage
-                                                to
-                                                continue that counts...</p>
-                                            <button type="button"
-                                                class="btn btn-facebook btn-simple btn-lg mb-0 pe-3 ps-2">
-                                                <i class="fab fa-facebook" aria-hidden="true"></i>
-                                            </button>
-                                            <button type="button" class="btn btn-twitter btn-simple btn-lg mb-0 px-2">
-                                                <i class="fab fa-twitter" aria-hidden="true"></i>
-                                            </button>
-                                            <button type="button" class="btn btn-github btn-simple btn-lg mb-0 px-2">
-                                                <i class="fab fa-github" aria-hidden="true"></i>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div> --}}
-                        <div class="col-md-5 mt-4">
-                            <div class="card card-profile mt-md-0 mt-5">
+                        <div class="col-md-5 mt-3">
+                            <div class="card card-profile  mt-5 ">
                                 <a href="{{ route('casa.show', $casa) }}">
                                     <div class="p-3">
                                         <img class="w-100 border-radius-lg img move-on-hover"
                                             src="{{ $casa->getMedia('casas')->first()->getUrl('thumb') }}"
-                                            alt="Image placeholder" class="card-img-top">
+                                            alt="Image placeholder" class="card-img-top" height="240px">
                                     </div>
                                 </a>
                                 <div class="card-body blur justify-content-center text-center mx-4 mb-4 border-radius-md">
@@ -214,8 +168,7 @@
                                     <p>{{ $casa->ubicacion }}</p>
                                     <div class="row justify-content-center text-center">
                                         <div class="col-12 mx-auto">
-                                            <p
-                                                class="mb-0 text-xs font-weight-bolder text-warning text-gradient ">
+                                            <p class="mb-0 text-xs font-weight-bolder text-warning text-gradient ">
                                                 Area <b>{{ $casa->area }}m<sup>2</sup></b></p>
                                             <small>{{ $casa->ciudad }}</small>
                                         </div>
@@ -225,16 +178,16 @@
                         </div>
                     @endforeach
                 </div>
-
+                <div class="pagination pagination-dark mt-4 justify-content-center">
+                    {{ $casas->links() }}
+                </div>
             </div>
             <div class="col">
-                <div class=" ">
-
-                    <div id="map"></div>
-                </div>
+                <div id="map" class="justify-content-center card card-plain card-blog"></div>
             </div>
         </div>
     </div>
+
 
 
     @include('layouts.footers.auth.footer')

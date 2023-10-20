@@ -17,46 +17,30 @@
                             </p>
                         </div>
                     </div>
-                    {{-- <div class="col-lg-4 col-md-6 my-sm-auto ms-sm-auto me-sm-0 mx-auto mt-3">
-                    {{-- <div class="nav-wrapper position-relative end-0">
-                        <ul class="nav nav-pills nav-fill p-1" role="tablist">
-                            <li class="nav-item">
-                                <a class="nav-link mb-0 px-0 py-1 active d-flex align-items-center justify-content-center "
-                                    data-bs-toggle="tab" href="javascript:;" role="tab" aria-selected="true">
-                                    <i class="ni ni-app"></i>
-                                    <span class="ms-2">App</span>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link mb-0 px-0 py-1 d-flex align-items-center justify-content-center "
-                                    data-bs-toggle="tab" href="javascript:;" role="tab" aria-selected="false">
-                                    <i class="ni ni-email-83"></i>
-                                    <span class="ms-2">Messages</span>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link mb-0 px-0 py-1 d-flex align-items-center justify-content-center "
-                                    data-bs-toggle="tab" href="javascript:;" role="tab" aria-selected="false">
-                                    <i class="ni ni-settings-gear-65"></i>
-                                    <span class="ms-2">Settings</span>
-                                </a>
-                            </li>
-                        </ul>
+                    <div class="col-lg-4 col-md-6 my-sm-auto ms-sm-auto me-sm-0 mx-auto mt-3">
+                        <div class="nav-wrapper position-relative end-0 ">
+
+                            <a class="nav-link mb-0 px-0 py-1 btn  bg-gradient-dark active d-flex align-items-center justify-content-center "
+                                data-bs-toggle="tab" href="javascript:;" role="tab" aria-selected="true">
+                                <i class="ni ni-app"></i>
+                                <span class="ms-2  ">Planes</span>
+                            </a>
+                        </div>
                     </div>
-                </div> --}}
                 </div>
             </div>
         </div>
         <div class="container-fluid py-4">
             <div class="row">
-                @if (session('status'))
-                    <div class="alert alert-info alert-dismissible fade show" role="alert">
-                        <p class="text-white mb-0">{{ session('status') }}</p>
+                @if (session('info'))
+                    <div class="alert alert-info mx-3 alert-dismissible fade show" role="alert">
+                        <span class="alert-icon alert text-white"><i class="ni ni-like-2"></i></span>
+                        <span class="text-white mb-0">{{ session('info') }}</span>
                     </div>
                 @endif
                 @if ($message = session()->has('error'))
                     <div class="alert alert-danger" role="alert">
-                        <p class="text-white mb-0">{{ session('status') }}</p>
+                        <p class="text-white mb-0">{{ session('info') }}</p>
                     </div>
                 @endif
 
@@ -68,7 +52,8 @@
                         <div class="card-header pb-0">
                             <div class="d-flex align-items-center">
                                 <p class="mb-0">Editar perfil</p>
-                                <button type="submit" class="btn btn-block bg-gradient-primary mb-3 btn-sm ms-auto">Guardar</button>
+                                <button type="submit"
+                                    class="btn btn-block bg-gradient-dark mb-3 btn-sm ms-auto">Guardar</button>
                             </div>
                         </div>
                         <div class="card-body">

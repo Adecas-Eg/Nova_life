@@ -29,13 +29,13 @@
             {{-- lista --}}
             <ul class="navbar-nav  justify-content-end">
                 {{-- cerrar seccion --}}
-                <li class="nav-item d-flex align-items-center">
+                <li class="nav-item d-flex  align-items-center">
                     <form role="form" method="post" action="{{ route('logout') }}" id="logout-form">
                         @csrf
                         <a href="{{ route('logout') }}"
                             onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
                             class="nav-link text-white font-weight-bold px-0">
-                            <i class="fa fa-user me-sm-1"></i>
+                            <i class="fa-solid fa-right-from-bracket me-sm-1"></i>
                             <span class="d-sm-inline d-none">Cerrar sección
                             </span>
                         </a>
@@ -62,20 +62,21 @@
                         </a>
                     </li>
                 @endcan
+                </li>
 
 
                 {{-- desplegable de notificacion --}}
-                <li class="nav-item dropdown pe-2 d-flex align-items-center">
+                {{-- <li class="nav-item dropdown pe-2 d-flex align-items-center">
                     <a href="javascript:;" class="nav-link text-white p-0" id="dropdownMenuButton"
                         data-bs-toggle="dropdown" aria-expanded="false">
                         <i class="fa fa-bell cursor-pointer"></i>
-                    </a>
-                    {{-- aplicar notificacion de comentarios de las cass  --}}
-                    <ul class="dropdown-menu  dropdown-menu-end  px-2 py-3 me-sm-n4"
-                        aria-labelledby="dropdownMenuButton">
+                    </a> --}}
+                {{-- aplicar notificacion de comentarios de las cass  --}}
+                {{-- <ul class="dropdown-menu  dropdown-menu-end  px-2 py-3 me-sm-n4"
+                        aria-labelledby="dropdownMenuButton"> --}}
 
-                        {{-- primera notificacion aqui aplicar un forech y determinar los comentarios de las casas --}}
-                        <li class="mb-2">
+                {{-- primera notificacion aqui aplicar un forech y determinar los comentarios de las casas --}}
+                {{-- <li class="mb-2">
                             <a class="dropdown-item border-radius-md" href="javascript:;">
                                 <div class="d-flex py-1">
                                     <div class="my-auto">
@@ -92,10 +93,10 @@
                                     </div>
                                 </div>
                             </a>
-                        </li>
+                        </li> --}}
 
-                    </ul>
-                </li>
+                {{-- </ul>
+                </li> --}}
             </ul>
         </div>
     </div>

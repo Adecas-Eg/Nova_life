@@ -62,27 +62,27 @@
         {{-- row barra datos prevos --}}
         <div class="row border text-center align-content-center  border-4 border-radius-xl p-3 mt-4">
 
-            <div class="col-md-4  border-end-md ">
+            <div class="col-md-4  border-end-md move-on-hover">
 
-                <i class="  text-dark  fa-solid fa-chart-area fa-xl  mx-1 "></i>
+                <i class="text-dark  fa-solid fa-chart-area fa-xl  mx-1 "></i>
                 <p class=" text-sm  ">
                     Area Contruida <b>{{ $casa->area }}m<sup>2</sup></b></p>
             </div>
 
-            <div class="col-md-2  border-end">
-                <b>{{ $casa->pisos }} </b><i class="  text-dark fa-solid fa-bed  fa-xl mx-1"></i>
+            <div class="col-md-2  border-end move-on-hover">
+                <b>{{ $casa->pisos }} </b><i class=" fa-solid fa-bed  fa-xl mx-1"></i>
                 <p class=" text-sm  ">
                     Habitaciones</p>
             </div>
-            <div class="col-md-3">
-                <p class=" text-sm  mt-3">
+            <div class="col-md-3 move-on-hover">
+                <p class=" text-sm  mt-3 ">
                     Baños <b> {{ $casa->baños }} </b>
                     <i class="fa-solid fa-bath  text-dark fa-xl mx-1"></i>
                 </p>
             </div>
 
 
-            <div class="col-md-3 border-start">
+            <div class="col-md-3 border-start move-on-hover">
                 <div class="mt-3">
                     <i class="fa-solid fa-chart-simple fa-fade text-dark fa-xl mx-1 "></i>
                     <small class=" text-sm  mt-3">
@@ -102,7 +102,7 @@
                                     <button class="accordion-button border-bottom font-weight-bold collapsed" type="button"
                                         data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false"
                                         aria-controls="collapseOne">
-                                        How do I order?
+                                        Descripcion General
                                         <i class="collapse-close fa fa-plus text-xs pt-1 position-absolute end-0 me-3"
                                             aria-hidden="true"></i>
                                         <i class="collapse-open fa fa-minus text-xs pt-1 position-absolute end-0 me-3"
@@ -111,13 +111,9 @@
                                 </h6>
                                 <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
                                     data-bs-parent="#accordionRental" style="">
-                                    <div class="accordion-body text-sm opacity-8">
-                                        We’re not always in the position that we want to be at. We’re constantly
-                                        growing. We’re constantly making mistakes. We’re constantly trying to express
-                                        ourselves and actualize our dreams. If you have the opportunity to play this
-                                        game
-                                        of life you need to appreciate every moment. A lot of people don’t appreciate
-                                        the moment until it’s passed.
+                                    <div class="accordion-body text-sm ">
+                                        {{ $casa->descripcion }} Ubicada en <b class="text-gradient text-warning">
+                                            {{ $casa->direccion }}</b>
                                     </div>
                                 </div>
                             </div>
@@ -126,7 +122,7 @@
                                     <button class="accordion-button border-bottom font-weight-bold" type="button"
                                         data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false"
                                         aria-controls="collapseTwo">
-                                        How can i make the payment?
+                                        Datos principales del inmuebnle
                                         <i class="collapse-close fa fa-plus text-xs pt-1 position-absolute end-0 me-3"
                                             aria-hidden="true"></i>
                                         <i class="collapse-open fa fa-minus text-xs pt-1 position-absolute end-0 me-3"
@@ -135,17 +131,33 @@
                                 </h5>
                                 <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
                                     data-bs-parent="#accordionRental">
-                                    <div class="accordion-body text-sm opacity-8">
-                                        It really matters and then like it really doesn’t matter. What matters is the
-                                        people who are sparked by it. And the people who are like offended by it, it
-                                        doesn’t matter. Because it's about motivating the doers. Because I’m here to
-                                        follow my dreams and inspire other people to follow their dreams, too.
-                                        <br>
-                                        We’re not always in the position that we want to be at. We’re constantly
-                                        growing. We’re constantly making mistakes. We’re constantly trying to express
-                                        ourselves and actualize our dreams. If you have the opportunity to play this
-                                        game of life you need to appreciate every moment. A lot of people don’t
-                                        appreciate the moment until it’s passed.
+                                    <div class="accordion-body text-sm ">
+                                        <div class="row">
+                                            <div class="col-3"> <span class="text-gradient text-warning"><b>Nombre del
+                                                        Inmueble </b><br></span>
+                                                {{ $casa->name }}
+                                            </div>
+                                            <div class="col-3">
+                                                <span class="text-gradient text-warning"><b>Ciudad </b><br></span>
+                                                {{ $casa->ciudad }}
+                                            </div>
+                                            <div class="col-3">
+                                                <span class="text-gradient text-warning"><b>Departamento </b><br></span>
+                                                {{ $casa->departamento }}
+                                            </div>
+                                            <div class="col-3">
+                                                <span class="text-gradient text-warning"><b>Precio </b><br></span>
+                                                ${{ $casa->precio }}
+                                            </div>
+                                        </div>
+                                        <div class="row ">
+
+                                            <div class="col mt-4">
+                                                <span class="text-gradient text-warning"><b>Antiguedad </b><br></span>
+                                                Mas de {{ $casa->antiguedad }} AÑOS
+                                            </div>
+                                        </div>
+
                                     </div>
                                 </div>
                             </div>
@@ -154,7 +166,7 @@
                                     <button class="accordion-button border-bottom font-weight-bold" type="button"
                                         data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false"
                                         aria-controls="collapseThree">
-                                        How much time does it take to receive the order?
+                                        Caracteristicas del inmubele
                                         <i class="collapse-close fa fa-plus text-xs pt-1 position-absolute end-0 me-3"
                                             aria-hidden="true"></i>
                                         <i class="collapse-open fa fa-minus text-xs pt-1 position-absolute end-0 me-3"
@@ -164,69 +176,7 @@
                                 <div id="collapseThree" class="accordion-collapse collapse"
                                     aria-labelledby="headingThree" data-bs-parent="#accordionRental">
                                     <div class="accordion-body text-sm opacity-8">
-                                        The time is now for it to be okay to be great. People in this world shun people
-                                        for being great. For being a bright color. For standing out. But the time is now
-                                        to be okay to be the greatest you. Would you believe in what you believe in, if
-                                        you were the only one who believed it?
-                                        If everything I did failed - which it doesn't, it actually succeeds - just the
-                                        fact that I'm willing to fail is an inspiration. People are so scared to lose
-                                        that they don't even try. Like, one thing people can't say is that I'm not
-                                        trying, and I'm not trying my hardest, and I'm not trying to do the best way I
-                                        know how.
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="accordion-item mb-3">
-                                <h5 class="accordion-header" id="headingFour">
-                                    <button class="accordion-button border-bottom font-weight-bold" type="button"
-                                        data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false"
-                                        aria-controls="collapseFour">
-                                        Can I resell the products?
-                                        <i class="collapse-close fa fa-plus text-xs pt-1 position-absolute end-0 me-3"
-                                            aria-hidden="true"></i>
-                                        <i class="collapse-open fa fa-minus text-xs pt-1 position-absolute end-0 me-3"
-                                            aria-hidden="true"></i>
-                                    </button>
-                                </h5>
-                                <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour"
-                                    data-bs-parent="#accordionRental">
-                                    <div class="accordion-body text-sm opacity-8">
-                                        I always felt like I could do anything. That’s the main thing people are
-                                        controlled by! Thoughts- their perception of themselves! They're slowed down by
-                                        their perception of themselves. If you're taught you can’t do anything, you
-                                        won’t do anything. I was taught I could do everything.
-                                        <br><br>
-                                        If everything I did failed - which it doesn't, it actually succeeds - just the
-                                        fact that I'm willing to fail is an inspiration. People are so scared to lose
-                                        that they don't even try. Like, one thing people can't say is that I'm not
-                                        trying, and I'm not trying my hardest, and I'm not trying to do the best way I
-                                        know how.
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="accordion-item mb-3">
-                                <h5 class="accordion-header" id="headingFifth">
-                                    <button class="accordion-button border-bottom font-weight-bold" type="button"
-                                        data-bs-toggle="collapse" data-bs-target="#collapseFifth" aria-expanded="false"
-                                        aria-controls="collapseFifth">
-                                        Where do I find the shipping details?
-                                        <i class="collapse-close fa fa-plus text-xs pt-1 position-absolute end-0 me-3"
-                                            aria-hidden="true"></i>
-                                        <i class="collapse-open fa fa-minus text-xs pt-1 position-absolute end-0 me-3"
-                                            aria-hidden="true"></i>
-                                    </button>
-                                </h5>
-                                <div id="collapseFifth" class="accordion-collapse collapse"
-                                    aria-labelledby="headingFifth" data-bs-parent="#accordionRental">
-                                    <div class="accordion-body text-sm opacity-8">
-                                        There’s nothing I really wanted to do in life that I wasn’t able to get good at.
-                                        That’s my skill. I’m not really specifically talented at anything except for the
-                                        ability to learn. That’s what I do. That’s what I’m here for. Don’t be afraid to
-                                        be wrong because you can’t learn anything from a compliment.
-                                        I always felt like I could do anything. That’s the main thing people are
-                                        controlled by! Thoughts- their perception of themselves! They're slowed down by
-                                        their perception of themselves. If you're taught you can’t do anything, you
-                                        won’t do anything. I was taught I could do everything.
+                                        {{ $casa->caracteristicas }}
                                     </div>
                                 </div>
                             </div>
@@ -243,13 +193,13 @@
                     <div class="col-md-12 col-lg-10">
                         <div class="card text-dark ">
                             <div class="card-body p-4 ">
-                                <h4 class="mb-0 small lh-sm border-bottom">Comments </h4>
-                                <p class="fw-light mb-4 pb-2 small lh-sm ">Latest Comments section by users</p>
+                                <h4 class="mb-0 text-small lh-sm border-bottom">Comentarios </h4>
+                                <p class="fw-light mb-4 pb-2 small lh-sm mt-2 ">Sección de comentarios del inmueble</p>
                                 <form action="{{ route('comment.store', $casa->id) }}" method="post">
                                     @csrf
                                     <div class="d-flex text-body-secondary  ">
                                         <textarea name="comment" class="form-control  mb-0 small lh-sm border-bottom" style="resize:none">
-                                                   </textarea>
+                                        </textarea>
                                     </div>
                                     <div class="d-flex text-body-secondary pt-3 justify-content-end align-content-end">
                                         <input type="submit" class="btn  bg-gradient-dark btn-sm lh-sm" id="prueba"
@@ -269,15 +219,13 @@
                                                     @if ($comment->user->id == auth()->user()->id)
                                                         <p class="mb-0 small lh-sm ">
                                                             {{ $comment->created }}
-                                                            <a class="badge bg-primary ">Active</a>
                                                         </p>
-
                                                         <a href="#!" class="link-muted" data-bs-toggle="modal"
                                                             data-bs-target="#update{{ $comment->id }}"><i
-                                                                class="fas fa-pencil-alt text-info ms-2"></i></a>
+                                                                class="fas fa-pencil-alt text-gradient text-dark ms-2"></i></a>
                                                         <a href="#!" class="link-muted" data-bs-toggle="modal"
                                                             data-bs-target="#delete{{ $comment->id }}"><i
-                                                                class="fas fa-trash-alt text-danger ms-2"></i></a>
+                                                                class="fas fa-trash-alt  text-gradient text-danger ms-2"></i></a>
                                                     @endif
 
                                                 </div>

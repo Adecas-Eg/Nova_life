@@ -1,6 +1,6 @@
 <div class="">
     @if ($message = session()->has('succes'))
-        <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <div class="alert alert-dark alert-dismissible fade show" role="alert">
             <p class="text-white mb-0">{{ session()->get('succes') }}</p>
         </div>
     @endif

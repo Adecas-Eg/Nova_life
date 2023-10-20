@@ -1,7 +1,7 @@
 let map;
 let marker;
 const image =
-    "https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png";
+    "https://github.com/Adecas-Eg/Nova_life/blob/main/logo.png?raw=true";
 
 async function initMap() {
     // The location of Uluru
@@ -13,7 +13,7 @@ async function initMap() {
 
     // The map, centered at Uluru
     map = new Map(document.getElementById("map"), {
-        zoom: 11,
+        zoom: 13,
         center: position,
         mapId: "DEMO_MAP_ID",
     });

@@ -46,9 +46,8 @@ class CasaController extends Controller
             ->where('name', 'like', '%' . $buscar . '%')
             ->where('status', '=', '1')
             ->orderBy('id')
-            ->paginate(6);
+            ->paginate(4);
 
-        // return $casas;
         return view('casas.index', compact('casas', 'buscar'));
     }
 
@@ -82,7 +81,7 @@ class CasaController extends Controller
         }
 
         //back se usa para regresar a la pagina anterior
-        return back()->with('status', 'Inmueble creado');
+        return redirect()->route('casa.administer')->with('info', 'Inmueble creado exitosamente');
     }
 
     /**
@@ -118,7 +117,7 @@ class CasaController extends Controller
     {
         $casa->update($request->validated());
 
-        return redirect('administer')->with('status', 'inmueble modificado');
+        return redirect('administer')->with('info', 'inmueble modificado exitosamente');
     }
 
     /**

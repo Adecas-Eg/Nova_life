@@ -3,14 +3,13 @@
 
 
     {{-- DIV DE LOGO MAS NOMBRE  SIDENAD LATERAL --}}
-    <div class="sidenav-header">
+    <div class="sidenav-header move-on-hover">
         <i class="fas fa-times p-3 cursor-pointer text-secondary opacity-5 position-absolute end-0 top-0 d-none d-xl-none"
             aria-hidden="true" id="iconSidenav"></i>
         <a class="navbar-brand m-0" href="{{ route('casa.home') }}">
             {{-- //IMAGEN Y LOGO --}}
-
-            {{-- <img src="{{ asset('./img/logo-ct-dark.png') }}" class="navbar-brand-img h-100" alt="main_logo"> --}}
-            <span class="ms-1 font-weight-bold"> NOVA LIFE :)</span>
+            <img src="{{ asset('img/logo1.png') }}" class="navbar-brand-img" alt="main_logo">
+            <span class="ms-1 font-weight-bold"> NOVA LIFE </span>
         </a>
     </div>
 
@@ -22,7 +21,7 @@
         <ul class="navbar-nav">
             {{-- DASHBOARD DE ADMINISTRADOR --}}
             @can('dashboard')
-                <li class="nav-item">
+                <li class="nav-item move-on-hover">
                     <a class="nav-link {{ Route::currentRouteName() == 'dashboard' ? 'active' : '' }}"
                         href="{{ route('dashboard') }}">
                         <div
@@ -35,7 +34,7 @@
             @endcan
 
             @can('users.index')
-                <li class="nav-item">
+                <li class="nav-item move-on-hover">
                     <a class="nav-link {{ Route::currentRouteName() == 'users' ? 'active' : '' }}"
                         href="{{ route('users.index') }}">
                         <div
@@ -80,7 +79,7 @@
 
             {{-- Inmuebles --}}
 
-            <li class="nav-item mt-3 d-flex align-items-center">
+            <li class="nav-item  mt-3 d-flex align-items-center">
                 <div class="ps-4">
                     <i class="fa fa-home text-info text-gradient text-sm opacity-10"></i>
                 </div>
@@ -88,7 +87,7 @@
             </li>
 
             @can('casa.index')
-                <li class="nav-item">
+                <li class="nav-item move-on-hover">
 
                     {{-- sabe si el link esta activo o no realiza una peticion al url y si esta activo lo muestra cambar a la otra pagimnna --}}
                     <a class="nav-link {{ str_contains(request()->url(), 'casa') == true ? 'active' : '' }}"
@@ -105,7 +104,7 @@
 
 
             @can('casa.create')
-                <li class="nav-item">
+                <li class="nav-item  move-on-hover">
 
                     {{-- sabe si el link esta activo o no realiza una peticion al url y si esta activo lo muestra cambar a la otra pagimnna --}}
                     <a class="nav-link {{ str_contains(request()->url(), 'casa/create') == true ? 'active' : '' }}"
@@ -122,7 +121,7 @@
 
             {{-- TABLES LINK --}}
             @can('casa.administer')
-                <li class="nav-item">
+                <li class="nav-item move-on-hover">
                     <a class="nav-link {{ str_contains(request()->url(), 'administer') == true ? 'active' : '' }}"
                         href="{{ route('casa.administer') }}">
                         <div
@@ -171,13 +170,13 @@
             </li> --}}
 
             {{-- ACOOUNNT LINK --}}
-            <li class="nav-item mt-3">
+            <li class="nav-item mt-3 ">
                 <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Perfil</h6>
             </li>
 
             {{-- PROFILE LINK --}}
             @can('profile')
-                <li class="nav-item">
+                <li class="nav-item move-on-hover">
                     <a class="nav-link {{ Route::currentRouteName() == 'profile-static' ? 'active' : '' }}"
                         href="{{ route('profile') }}">
                         <div
@@ -188,6 +187,23 @@
                     </a>
                 </li>
             @endcan
+
+            <li class="nav-item move-on-hover">
+
+                <form role="form" method="post" action="{{ route('logout') }}" id="logout-form">
+                    @csrf
+                    <a href="{{ route('logout') }}"
+                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
+                        class="nav-link ">
+                        <div
+                            class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                            <i class="fa-solid fa-right-from-bracket text-gradient text-warning text-lg "></i>
+                        </div>
+                        <span class="nav-link-text ms-1">Cerrar sección
+                        </span>
+                    </a>
+                </form>
+            </li>
             {{--
             <li class="nav-item">
                 <a class="nav-link " href="{{ route('sign-in-static') }}">
@@ -209,24 +225,4 @@
             </li>
         </ul> --}}
     </div>
-
-
-
-    {{-- Parte de abajo nesbues se ve que se pone alli
-    <div class="sidenav-footer mx-3 ">
-        <div class="card card-plain shadow-none" id="sidenavCard">
-            <img class="w-50 mx-auto" src="/img/illustrations/icon-documentation-warning.svg"
-                alt="sidebar_illustration">
-            <div class="card-body text-center p-3 w-100 pt-0">
-                <div class="docs-info">
-                    <h6 class="mb-0">Need help?</h6>
-                    <p class="text-xs font-weight-bold mb-0">Please check our docs</p>
-                </div>
-            </div>
-        </div>
-        <a href="/docs/bootstrap/overview/argon-dashboard/index.html" target="_blank"
-            class="btn btn-dark btn-sm w-100 mb-3">Documentation</a>
-        <a class="btn btn-primary btn-sm mb-0 w-100"
-            href="https://www.creative-tim.com/product/argon-dashboard-pro-laravel" target="_blank" type="button">Upgrade to PRO</a>
-    </div> --}}
 </aside>

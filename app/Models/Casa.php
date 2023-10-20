@@ -34,12 +34,12 @@ class Casa extends Model implements HasMedia
         return $this->hasMany('App\Models\Comment');
     }
 
-
     //relacion muchos a muchis
 
-    public function categories()
+
+    public function caracteristicas()
     {
-        return $this->belongsToMany('App\Models\Category');
+        return $this->hasOne('App\Models\Caracteristica');
     }
 
     public function getSlugOptions(): SlugOptions
@@ -65,5 +65,5 @@ class Casa extends Model implements HasMedia
             ->sharpen(10);
     }
 
-    
+
 }

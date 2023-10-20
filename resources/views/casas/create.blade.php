@@ -172,6 +172,16 @@
 
                                     </div>
                                 </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="example-text-input" class="form-control-label">Antiguedad del inmueble</label>
+                                        <input class="form-control" type="number" name="antiguedad"
+                                            value="{{ old('antiguedad') }}">
+                                        @error('antiguedad')
+                                            <p class="text-danger text-xs pt-1"> {{ $message }} </p>
+                                        @enderror
+                                    </div>
+                                </div>
                             </div>
                             <hr class="horizontal dark">
                             <p class="text-uppercase text-sm">Espacios</p>
@@ -266,4 +276,4 @@
 
     </div>
     @include('layouts.footers.auth.footer')
-@endsection
+    @endsection

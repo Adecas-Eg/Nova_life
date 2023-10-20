@@ -26,6 +26,7 @@ return new class extends Migration {
             $table->string('pisos');
             $table->string('area');
             $table->string('url_3d');
+            $table->float('antiguedad');
             // $table->string('img')->nullable();
             //poner habitaciones
             $table->float('latitud')->nullable();
