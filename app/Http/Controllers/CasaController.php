@@ -68,7 +68,7 @@ class CasaController extends Controller
         //logica de multiples imagens con librerias
         $casa->user_id = auth()->user()->id;
         $casa->status = 1;
-        if (!$geometry) {
+        if (    $geometry) {
             $casa->latitud = $geometry->latitud;
             $casa->longitud = $geometry->longitud;
         }

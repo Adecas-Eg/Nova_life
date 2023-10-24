@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Casa;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Spatie\Permission\Models\Role;
@@ -62,6 +63,13 @@ class UserController extends Controller
             $user->save();
             return redirect()->back();
         }
+    }
+    public function administer_casa()
+    {
+        $casas = Casa::with(['media'])
+            ->orderBy('id')
+            ->paginate(15);
+        return view('admin.users.administer_casa', compact('casas'));
     }
 
 }

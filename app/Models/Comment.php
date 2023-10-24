@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use App\Events\CommentEvent;
+use App\Notifications\CommentNotification;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -19,6 +21,7 @@ class Comment extends Model
     {
         return $this->belongsTo('App\Models\Casa');
     }
+
 
 
     protected $fillable = ['comment'];

@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\CommentEvent;
 use App\Models\Comment;
 use App\Models\User;
+use App\Notifications\CommentNotification;
 use Illuminate\Http\Request;
 
 class CommentController extends Controller
@@ -39,24 +41,31 @@ class CommentController extends Controller
         $comment->user_id = auth()->user()->id;
         $comment->casa_id = $id;
         $comment->created = now();
-
         $comment->save();
+        $this->make_comment_notification($comment);
+
         return redirect()->back();
     }
 
 
-    public function update( Comment $comment,Request $request)
+    public function update(Comment $comment, Request $request)
     {
-        
+
         $comment->comment = $request->comment;
         $comment->save();
         return redirect()->back();
 
     }
 
-    public function destroy(Comment $comment){
+    public function destroy(Comment $comment)
+    {
 
         $comment->delete();
         return redirect()->back();
+    }
+    public function make_comment_notification(Comment $comment)
+    {
+        event(new CommentEvent($comment));
+
     }
 }

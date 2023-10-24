@@ -53,7 +53,7 @@
                 <div class="card-body text-center bg-white shadow border-radius-lg p-3">
 
                     <iframe class="w-100 border-radius-md" width="780" height="520"
-                        src="https://virtualitour.es/tours/fl89QxQQBQ1U1KIR5uVk" frameborder="0" fullscreen></iframe>
+                        src="https://virtualitour.es/tours/45lQhhMNovJnNOdeRn06?autoLoad=false" frameborder="0" fullscreen></iframe>
 
                 </div>
             </div>
@@ -213,7 +213,7 @@
                                             <img class="rounded-circle shadow-1-strong me-3"
                                                 src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(23).webp"
                                                 alt="avatar" width="60" height="60" />
-                                            <div>
+                                            <div> 
                                                 <h6 class="fw-bold mb-1">{{ $comment->user->username }}</h6>
                                                 <div class="d-flex align-items-center mb-3">
                                                     @if ($comment->user->id == auth()->user()->id)
@@ -230,7 +230,7 @@
 
                                                 </div>
                                                 <p class="mb-0 small lh-sm border-bottom">
-                                                    {{ $comment->comment }}
+                                                    {{ $comment->comment}}
                                                 </p>
                                             </div>
                                         </div>

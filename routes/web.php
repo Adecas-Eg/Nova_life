@@ -10,6 +10,7 @@ use App\Http\Controllers\UserProfileController;
 use App\Http\Controllers\ResetPassword;
 use App\Http\Controllers\ChangePassword;
 use App\Http\Controllers\CommentController;
+use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\UserController;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
@@ -87,6 +88,10 @@ Route::get('/sobre', function () {
     return view('pages.sobre');
 });
 
+Route::get('/politicas', function () {
+    return view('components.politicas');
+});
+
 Route::group(['middleware' => 'guest'], function () {
     Route::get('/register', [RegisterController::class, 'create'])->name('register');
     Route::post('/register', [RegisterController::class, 'store'])->name('register.perform');
@@ -96,6 +101,9 @@ Route::group(['middleware' => 'guest'], function () {
     Route::post('/reset-password', [ResetPassword::class, 'send'])->name('reset.perform');
     Route::get('/change-password/{userNew}', [ChangePassword::class, 'show'])->name('change.password');
     Route::post('/change-password/{userNew}', [ChangePassword::class, 'update'])->name('change.perform');
+    Route::get('/change', [ChangePassword::class, 'show_password'])->name('change-password');
+    Route::post('/change', [ChangePassword::class, 'update_password'])->middleware('guest')->name('change-perfom');
+
 });
 
 Route::get('/dashboard', [HomeController::class, 'dashboard'])->name('dashboard')->middleware('auth', 'can:dashboard');
@@ -126,11 +134,12 @@ Route::group(['middleware' => 'auth'], function () {
 });
 
 Route::group(['middleware' => 'auth'], function () {
-    Route::get('/users', [UserController::class, 'index'])->name('users.index');
-    Route::post('/users', [UserController::class, 'store'])->name('users.store');
-    Route::get('/users/{user}', [UserController::class, 'edit'])->name('users.edit');
-    Route::put('/users/{user}', [UserController::class, 'update'])->name('users.update');
-    Route::get('/user/change_status/{user}', [UserController::class, 'change_status'])->name('user.change_status');
+    Route::get('/admin/users', [UserController::class, 'index'])->name('users.index');
+    Route::post('/admin/users', [UserController::class, 'store'])->name('users.store');
+    Route::get('/admin/users/{user}', [UserController::class, 'edit'])->name('users.edit');
+    Route::put('/admin/users/{user}', [UserController::class, 'update'])->name('users.update');
+    Route::get('/admin/casas', [UserController::class, 'administer_casa'])->name('admin.casas');
+    Route::get('/admin/user/change_status/{user}', [UserController::class, 'change_status'])->name('user.change_status');
 
 });
 
@@ -145,3 +154,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/{page}', [PageController::class, 'index'])->name('page');
     Route::post('logout', [LoginController::class, 'logout'])->name('logout');
 });
+
+Route::get('mark-all-notifications', [NotificationController::class, 'all_notifications '])->name('mark-all-notifications');
+Route::get('one-notifications/{notification_id}/{casa_id}', [NotificationController::class, 'one_notifications'])->name('one_notifications');
+

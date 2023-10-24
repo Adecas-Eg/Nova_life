@@ -17,7 +17,8 @@ class ResetPassword extends Controller
         return view('auth.reset-password');
     }
 
-    public function routeNotificationForMail() {
+    public function routeNotificationForMail()
+    {
         return request()->email;
     }
 
@@ -30,7 +31,9 @@ class ResetPassword extends Controller
 
         if ($user) {
             $this->notify(new ForgotPassword($user->id));
-            return back()->with('succes', 'An email was send to your email address');
+            return back()->with('succes', 'Se envió un correo electrónico a su dirección de email');
+        }else{
+            return back()->with('error', 'no se encontro esta dirrecion de correo electronico');
         }
     }
 }

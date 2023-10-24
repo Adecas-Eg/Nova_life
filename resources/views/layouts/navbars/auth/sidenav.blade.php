@@ -32,7 +32,18 @@
                     </a>
                 </li>
             @endcan
-
+            {{-- @can('admin.casas') --}}
+            <li class="nav-item move-on-hover">
+                <a class="nav-link {{ Route::currentRouteName() == 'admin/casas' ? 'active' : '' }}"
+                    href="{{ route('admin.casas') }}">
+                    <div
+                        class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="fa fa-home text-info text-gradient text-sm opacity-10"></i>
+                    </div>
+                    <span class="nav-link-text ms-1">Inmuebles</span>
+                </a>
+            </li>
+            {{-- @endcan --}}
             @can('users.index')
                 <li class="nav-item move-on-hover">
                     <a class="nav-link {{ Route::currentRouteName() == 'users' ? 'active' : '' }}"
