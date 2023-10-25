@@ -213,7 +213,7 @@
                                             <img class="rounded-circle shadow-1-strong me-3"
                                                 src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(23).webp"
                                                 alt="avatar" width="60" height="60" />
-                                            <div> 
+                                            <div>
                                                 <h6 class="fw-bold mb-1">{{ $comment->user->username }}</h6>
                                                 <div class="d-flex align-items-center mb-3">
                                                     @if ($comment->user->id == auth()->user()->id)

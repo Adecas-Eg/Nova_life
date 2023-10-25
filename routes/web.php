@@ -12,8 +12,10 @@ use App\Http\Controllers\ChangePassword;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\UserController;
+use App\Mail\NotificationsMailable;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 use Laravel\Socialite\Facades\Socialite;
 
 
@@ -37,6 +39,7 @@ Auth::routes();
 
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
 
 
 Route::get('/', function () {
@@ -157,4 +160,7 @@ Route::group(['middleware' => 'auth'], function () {
 
 Route::get('mark-all-notifications', [NotificationController::class, 'all_notifications '])->name('mark-all-notifications');
 Route::get('one-notifications/{notification_id}/{casa_id}', [NotificationController::class, 'one_notifications'])->name('one_notifications');
+
+Route::get('/notifications', [NotificationController::class, 'index'])->name('notifications.index');
+Route::post('/notifications', [NotificationController::class, 'store'])->name('notifications.store');
 

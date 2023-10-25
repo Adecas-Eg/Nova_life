@@ -2,10 +2,12 @@
 
 namespace App\Listeners;
 
+use App\Mail\NotificationsMailable;
 use App\Models\User;
 use App\Notifications\CommentNotification;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Notification;
 
 class CommentListener
@@ -24,7 +26,9 @@ class CommentListener
     public function handle($event): void
     {
         $user = User::find($event->comment->casa->user_id);
-        Notification::send($user,new CommentNotification($event->comment));
+
+        // Mail::send(new NotificationsMailable($event->comment));
+        Notification::send($user, new CommentNotification($event->comment));
 
     }
 }

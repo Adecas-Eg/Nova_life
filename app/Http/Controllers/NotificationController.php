@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 class NotificationController extends Controller
 {
+
     public function all_notifications(){
         auth()->user()->unreadNotifications->markAsRead();
         return redirect()->back();
