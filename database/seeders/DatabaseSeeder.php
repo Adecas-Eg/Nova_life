@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Casa;
+use App\Models\Category;
 use Database\Factories\CasaFactory;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
@@ -20,6 +21,9 @@ class DatabaseSeeder extends Seeder
 
         $this->call(RolSeeder::class);
         $this->call(UserSeeder::class);
+        if (Category::count()==0){
+            $this->call(CategorySeeders::class);
+        }
         // $this->call(CasaSeeder::class);
 
 

@@ -9,7 +9,12 @@
 
 <body>
     <div>
-      <h1> {{$data->casa['name']}} </h1>
+        <h1>!!! Hola {{ $data->user['username'] }}</h1>
+        <h3>Tiene un nuevo comentario del inmueble {{ $data->casa['name'] }} </h3>
+
+        <a href="{{route('login')}}">
+            <p>para revisar el nuevo comentario pulse aqui</p>
+        </a>
     </div>
 
 </body>

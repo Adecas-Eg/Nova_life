@@ -12,6 +12,8 @@ class PageController extends Controller
      * @param string $page
      * @return \Illuminate\View\View
      */
+
+     //metodo retorna pagina no encintrada
     public function index(string $page)
     {
         if (view()->exists("pages.{$page}")) {
@@ -24,6 +26,19 @@ class PageController extends Controller
     public function vr()
     {
         return view("pages.virtual-reality");
+    }
+    public function sobre()
+    {
+        return view("pages.sobre");
+    }
+
+    public function politicas()
+    {
+        return view("pages.politicas");
+    }
+    public function plans()
+    {
+        return view("pages.plans");
     }
 
     public function rtl()

@@ -87,13 +87,7 @@ Route::get('/google-callback', function () {
 
 });
 
-Route::get('/sobre', function () {
-    return view('pages.sobre');
-});
 
-Route::get('/politicas', function () {
-    return view('components.politicas');
-});
 
 Route::group(['middleware' => 'guest'], function () {
     Route::get('/register', [RegisterController::class, 'create'])->name('register');
@@ -115,38 +109,38 @@ Route::get('/dashboard', [HomeController::class, 'dashboard'])->name('dashboard'
 Route::get('/principals', [CasaController::class, 'home'])->name('casa.home');
 
 
-Route::group(['middleware' => 'auth'], function () {
-    Route::get('/comment', [CommentController::class, 'index'])->name('comment.index');
-    Route::post('/comment/{id}', [CommentController::class, 'store'])->name('comment.store');
-    Route::patch('/comment/{comment}', [CommentController::class, 'update'])->name('comment.update');
-    Route::delete('/comment/{comment}', [CommentController::class, 'destroy'])->name('comment.destroy');
+Route::prefix('comment')->middleware('auth')->group(function () {
+    Route::get('/', [CommentController::class, 'index'])->name('comment.index');
+    Route::post('/{id}', [CommentController::class, 'store'])->name('comment.store');
+    Route::patch('/{comment}', [CommentController::class, 'update'])->name('comment.update');
+    Route::delete('/{comment}', [CommentController::class, 'destroy'])->name('comment.destroy');
 });
 
 
-
-Route::group(['middleware' => 'auth'], function () {
-    Route::get('/casa', [CasaController::class, 'index'])->name('casa.index');
-    Route::get('/casa/filter', [CasaController::class, 'index'])->name('casa.filter');
-    Route::get('/casa/create', [CasaController::class, 'create'])->name('casa.create');
-    Route::post('/casa', [CasaController::class, 'store'])->name('casa.store');
-    Route::get('/casa/{casa}/edit', [CasaController::class, 'show'])->name('casa.show');
-    Route::get('/administer', [CasaController::class, 'administer'])->name('casa.administer');
-    Route::get('/casa/{casa}', [CasaController::class, 'edit'])->name('casa.edit');
-    Route::patch('/casa/{casa}', [CasaController::class, 'update'])->name('casa.update');
-    Route::get('/casa/change_status/{casa}', [CasaController::class, 'change_status'])->name('casa.change_status');
-});
-
-Route::group(['middleware' => 'auth'], function () {
-    Route::get('/admin/users', [UserController::class, 'index'])->name('users.index');
-    Route::post('/admin/users', [UserController::class, 'store'])->name('users.store');
-    Route::get('/admin/users/{user}', [UserController::class, 'edit'])->name('users.edit');
-    Route::put('/admin/users/{user}', [UserController::class, 'update'])->name('users.update');
-    Route::get('/admin/casas', [UserController::class, 'administer_casa'])->name('admin.casas');
-    Route::get('/admin/user/change_status/{user}', [UserController::class, 'change_status'])->name('user.change_status');
+Route::prefix('casa')->controller(CasaController::class)->middleware('auth')->group(function () {
+    Route::get('/',  'index')->name('casa.index');
+    Route::get('/filter', 'index')->name('casa.filter');
+    Route::get('/create',  'create')->name('casa.create');
+    Route::post('/',  'store')->name('casa.store');
+    Route::get('/{casa}/edit',  'show')->name('casa.show');
+    Route::get('/administer',  'administer')->name('casa.administer');
+    Route::get('/{casa}',  'edit')->name('casa.edit');
+    Route::patch('/{casa}',  'update')->name('casa.update');
+    Route::get('/change_status/{casa}' , 'change_status')->name('casa.change_status');
+    Route::post('/category','category')->name('casa.category');
 
 });
 
-Route::group(['middleware' => 'auth'], function () {
+Route::prefix('/admin')->middleware('auth')->group(function () {
+    Route::get('/users', [UserController::class, 'index'])->name('users.index');
+    Route::post('/users', [UserController::class, 'store'])->name('users.store');
+    Route::get('/users/{user}', [UserController::class, 'edit'])->name('users.edit');
+    Route::put('/users/{user}', [UserController::class, 'update'])->name('users.update');
+    Route::get('/casas', [UserController::class, 'administer_casa'])->name('admin.casas');
+    Route::get('/user/change_status/{user}', [UserController::class, 'change_status'])->name('user.change_status');
+});
+
+Route::prefix('utils')->middleware('auth')->group(function () {
     Route::get('/virtual-reality', [PageController::class, 'vr'])->name('virtual-reality');
     Route::get('/rtl', [PageController::class, 'rtl'])->name('rtl');
     Route::get('/profile', [UserProfileController::class, 'show'])->name('profile');
@@ -154,13 +148,18 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/profile-static', [PageController::class, 'profile'])->name('profile-static');
     Route::get('/sign-in-static', [PageController::class, 'signin'])->name('sign-in-static');
     Route::get('/sign-up-static', [PageController::class, 'signup'])->name('sign-up-static');
+    Route::get('/politicas', [PageController::class, 'politicas'])->name('politicas');
+    Route::get('/plans', [PageController::class, 'plans'])->name('plans');
+    Route::get('/sobre', [PageController::class, 'sobre'])->name('sobre');
     Route::get('/{page}', [PageController::class, 'index'])->name('page');
     Route::post('logout', [LoginController::class, 'logout'])->name('logout');
 });
 
-Route::get('mark-all-notifications', [NotificationController::class, 'all_notifications '])->name('mark-all-notifications');
-Route::get('one-notifications/{notification_id}/{casa_id}', [NotificationController::class, 'one_notifications'])->name('one_notifications');
+Route::prefix('notifications')->group(function () {
+    Route::get('mark-all-notifications', [NotificationController::class, 'all_notifications '])->name('mark-all-notifications');
+    Route::get('one-notifications/{notification_id}/{casa_id}', [NotificationController::class, 'one_notifications'])->name('one_notifications');
 
-Route::get('/notifications', [NotificationController::class, 'index'])->name('notifications.index');
-Route::post('/notifications', [NotificationController::class, 'store'])->name('notifications.store');
+    Route::get('/', [NotificationController::class, 'index'])->name('notifications.index');
+    Route::post('/', [NotificationController::class, 'store'])->name('notifications.store');
+});
 

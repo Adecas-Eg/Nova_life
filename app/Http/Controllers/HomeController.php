@@ -2,11 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Casa;
+use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-        /**
+    /**
      * Create a new controller instance.
      *
      * @return void
@@ -28,10 +31,15 @@ class HomeController extends Controller
 
     public function dashboard()
     {
-        return view('pages.dashboard');
+        $a = Casa::get()->count();
+        $t = User::get()->count();
+        $un = User::get()->where('created_at', '>', Carbon::today()->subMonth(7))->count();
+        $promu = round(((($t+$un-$t)/$t)*100),2);
+        return view('pages.dashboard', compact('a', 't', 'un','promu'));
     }
 
-    public function princ(){
-        return  view('home');
+    public function princ()
+    {
+        return view('home');
     }
 }

@@ -56,8 +56,8 @@
                                             </div>
                                             <div class="d-flex flex-column justify-content-center">
                                                 <h6 class="text-sm font-weight-normal mb-1 ">
-                                                    <span
-                                                        class="font-weight-bold ">Inmueble {{ $notification->data['name_casa'] }}</span>
+                                                    <span class="font-weight-bold ">Inmueble
+                                                        {{ $notification->data['name_casa'] }}</span>
                                                     de {{ $notification->data['name_user'] }}
                                                 </h6>
                                                 <p class="text-xs text-secondary mb-0">

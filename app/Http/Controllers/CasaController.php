@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreCasa;
 use App\Models\Casa;
+use App\Models\Category;
 use App\Models\Comment;
 use App\Models\User;
 use Illuminate\Contracts\Cache\Store;
@@ -22,6 +23,9 @@ class CasaController extends Controller
         $this->middleware('can:casa.edit')->only('edit');
         $this->middleware('can:casa.update')->only('update');
         $this->middleware('can:casa.administer')->only('administer');
+        $this->middleware('can:casa.change_status')->only('change_status');
+
+
     }
 
 
@@ -36,18 +40,19 @@ class CasaController extends Controller
             return view('casas.home');
         }
     }
+
+
     public function index(Request $request)
     {
-
-
         $buscar = $request->buscar;
-
+        //buscar en array
+        $resultados = Casa::whereIn('tipo_inmueble', ['apartamento'])->get();
         $casas = Casa::with(['media'])
-            ->where('name', 'like', '%' . $buscar . '%')
+            ->whereRaw("LOWER(ciudad) LIKE ?", ['%' . strtolower($buscar) . '%'])
             ->where('status', '=', '1')
             ->orderBy('id')
             ->paginate(4);
-
+        // return $resultados;
         return view('casas.index', compact('casas', 'buscar'));
     }
 
@@ -68,7 +73,7 @@ class CasaController extends Controller
         //logica de multiples imagens con librerias
         $casa->user_id = auth()->user()->id;
         $casa->status = 1;
-        if (    $geometry) {
+        if ($geometry) {
             $casa->latitud = $geometry->latitud;
             $casa->longitud = $geometry->longitud;
         }
@@ -84,13 +89,9 @@ class CasaController extends Controller
         return redirect()->route('casa.administer')->with('info', 'Inmueble creado exitosamente');
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(Casa $casa)
     {
         $comments = Comment::get()->where('casa_id', $casa->id);
-
         $casa->with(['media'])->find($casa->id);
         if (!empty($comments)) {
             $user = User::find($casa->user_id);
@@ -101,38 +102,23 @@ class CasaController extends Controller
 
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(Casa $casa)
     {
 
         return view('casas.edit', compact('casa'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
+
     public function update(StoreCasa $request, Casa $casa)
     {
         $casa->update($request->validated());
-
         return redirect('administer')->with('info', 'inmueble modificado exitosamente');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
-    }
 
 
     public function administer()
     {
-        // $recargas = Recarga::orderBy('fecha_recarga','DESC')->with('usuario')->get();
-
 
         $user = User::find(auth()->user()->id);
         $casas1 = $user->casas->sortByDesc('id');
@@ -145,7 +131,6 @@ class CasaController extends Controller
         } else {
             return view('casas.administer', compact('casas'));
         }
-        // return  $casas;
     }
 
 
@@ -158,5 +143,15 @@ class CasaController extends Controller
             $casa->update(['status' => 1]);
             return redirect()->back();
         }
+    }
+
+
+    public function category(Request $request)
+    {
+       $tags=[];
+       if( $search=$request->name){
+        $tags=Category::where('tittle'.'LIKE',"%$search%")->get();
+       }
+       return response()->json($tags);
     }
 }

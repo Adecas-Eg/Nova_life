@@ -152,6 +152,7 @@
                     </div>
                 </div>
                 <div class="row">
+
                     @foreach ($casas as $casa)
                         <div class="col-md-5 mt-3">
                             <div class="card card-profile  mt-5 ">
@@ -186,10 +187,7 @@
                 <div id="map" class="justify-content-center card card-plain card-blog"></div>
             </div>
         </div>
-    </div>
+        @include('layouts.footers.auth.footer')
 
-
-
-    @include('layouts.footers.auth.footer')
     </div>
 @endsection

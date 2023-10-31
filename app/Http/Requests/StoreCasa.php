@@ -22,19 +22,19 @@ class StoreCasa extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required|max:255|min:2',
-            'tipo_oferta' =>'required|max:255',
-            'tipo_inmueble' => 'required|max:255',
-            'estrato' => 'required|max:255',
-            'direccion' => 'required|max:255',
-            'departamento' => 'required|max:255',
-            'ciudad' => 'required|max:255',
+            'name' => 'required|max:50|min:2',
+            'tipo_oferta' =>'required|max:15',
+            'tipo_inmueble' => 'required|max:15',
+            'estrato' => 'required|max:7',
+            'direccion' => 'required|max:200|min:4',
+            'departamento' => 'required|max:20|min:3',
+            'ciudad' => 'required|max:15',
             'descripcion' => 'required|max:255',
-            'baños' => 'required|max:255',
-            'parqueaderos' => 'required|max:255',
-            'pisos' => 'required|max:255',
-            'precio'=>'required',
-            'area' => 'required|max:25',
+            'baños' => 'required|max:5|min:1',
+            'parqueaderos' => 'required|max:5|',
+            'pisos' => 'required|max:100|min:1',
+            'precio'=>'required|min:1|',
+            'area' => 'required|max:50',
             'antiguedad' => 'required|max:25',
             'url_3d' => 'required'
         ];

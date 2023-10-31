@@ -35,18 +35,25 @@ class LoginController extends Controller
             $user = auth()->user();
 
             //recuperara los roles y redireccionar a cada ruta
-            foreach($user->roles as $role) {
-                if($role->name == "admin"){
-                    return redirect()->intended('dashboard');
-                    
-                }else {
-                    return redirect()->intended('casa');
+            if (auth()->user()->status == 1) {
+                foreach ($user->roles as $role) {
+                    if ($role->name == "admin") {
+                        return redirect()->intended('dashboard');
+
+                    } else {
+                        return redirect()->intended('casa');
+                    }
                 }
+            } else {
+                Auth::logout();
+                return back()->withErrors([
+                    'email' => 'Usuerio inactivo',
+                ]);
             }
         }
 
         return back()->withErrors([
-            'email' => 'The provided credentials do not match our records.',
+            'email' => 'Credenciales incorctas',
         ]);
     }
 

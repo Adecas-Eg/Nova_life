@@ -16,6 +16,11 @@ class UserController extends Controller
         $this->middleware('can:users.index')->only('index');
         $this->middleware('can:users.edit')->only('edit');
         $this->middleware('can:users.update')->only('update');
+        $this->middleware('can:casa.changue_status')->only('changue_status');
+        $this->middleware('can:casa.admin.casas')->only('administer_casa');
+
+
+
 
     }
     public function index(Request $request)
@@ -24,7 +29,7 @@ class UserController extends Controller
         $users = User::where('email', 'like', '%' . $buscar . '%')
             ->orWhere('username', 'like', '%' . $buscar . '%')
             ->orderBy('id', 'DESC')
-            ->paginate(6);
+            ->paginate(8);
         return view('admin.users.index', compact('users', 'buscar'));
     }
 

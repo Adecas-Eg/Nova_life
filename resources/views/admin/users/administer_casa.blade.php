@@ -8,18 +8,9 @@
     <div class="container-fluid py-4">
         <div class="row">
             <div class="px-2 pt-2 col-md-10">
-                @if (session('info'))
-                    <div class="alert alert-info mx-3 alert-dismissible fade show" role="alert">
-                        <span class="alert-icon alert text-white"><i class="ni ni-like-2"></i></span>
-                        <span class="text-white mb-0">{{ session('info') }}</span>
-                    </div>
-                @endif
-                @if ($message = session()->has('error'))
-                    <div class="alert alert-danger" role="alert">
-                        <p class="text-white mb-0">{{ session('info') }}</p>
-                    </div>
-                @endif
-
+                <div id="alert">
+                    @include('components.alert')
+                </div>
             </div>
             <div class="col-12">
                 <div class="card mb-4">
@@ -111,6 +102,7 @@
             </div>
         </div>
     </div>
+
     @include('layouts.footers.auth.footer')
 
 @endsection

@@ -33,7 +33,8 @@ class User extends Authenticatable
         'number',
         'about',
         'external_id',
-        'external_auth'
+        'external_auth',
+        'plan'
     ];
 
 
