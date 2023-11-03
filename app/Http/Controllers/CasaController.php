@@ -23,7 +23,7 @@ class CasaController extends Controller
         $this->middleware('can:casa.edit')->only('edit');
         $this->middleware('can:casa.update')->only('update');
         $this->middleware('can:casa.administer')->only('administer');
-        $this->middleware('can:casa.change_status')->only('change_status');
+        $this->middleware('can:casa.change_status')->only('casa.change_status');
 
 
     }
@@ -112,7 +112,14 @@ class CasaController extends Controller
     public function update(StoreCasa $request, Casa $casa)
     {
         $casa->update($request->validated());
-        return redirect('administer')->with('info', 'inmueble modificado exitosamente');
+        if (request()->hasFile('imagenes')) {
+            $casa->clearMediaCollection('casas');
+            $casa->addMultipleMediaFromRequest(['imagenes'])
+                ->each(function ($fileAdder) {
+                    $fileAdder->toMediaCollection('casas');
+                });
+        }
+        return redirect()->route('casa.administer')->with('info', 'inmueble modificado exitosamente');
     }
 
 
@@ -148,10 +155,10 @@ class CasaController extends Controller
 
     public function category(Request $request)
     {
-       $tags=[];
-       if( $search=$request->name){
-        $tags=Category::where('tittle'.'LIKE',"%$search%")->get();
-       }
-       return response()->json($tags);
+        $tags = [];
+        if ($search = $request->name) {
+            $tags = Category::where('tittle' . 'LIKE', "%$search%")->get();
+        }
+        return response()->json($tags);
     }
 }

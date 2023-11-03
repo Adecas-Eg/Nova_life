@@ -7,20 +7,8 @@
 
     <div class="container-fluid py-4">
         <div class="row">
-            <div class="px-2 pt-2 col-md-10">
-                @if (session('info'))
-                    <div class="alert alert-info mx-3 alert-dismissible fade show" role="alert">
-                        <span class="alert-icon alert text-white"><i class="ni ni-like-2"></i></span>
-                        <span class="text-white mb-0">{{ session('info') }}</span>
-                    </div>
-                @endif
-                @if ($message = session()->has('error'))
-                    <div class="alert alert-danger" role="alert">
-                        <p class="text-white mb-0">{{ session('info') }}</p>
-                    </div>
-                @endif
-
-            </div>
+            @include('components.alert')
+            
             <div class="col-12">
                 <div class="card mb-4">
                     <div class="card-header pb-0">
@@ -73,11 +61,11 @@
                                                     @if ($casa->status == 1)
                                                         {{-- se puede poner un modal para confirmar --}}
                                                         <a href="{{ route('casa.change_status', $casa) }}"><span
-                                                                class="badge badge-sm bg-gradient-success"> Activo
+                                                                class="badge  bg-gradient-success"> Activo
                                                             </span></a>
                                                     @else
                                                         <a href="{{ route('casa.change_status', $casa) }}"><span
-                                                                class="badge badge-sm bg-gradient-dark"> Inactivo
+                                                                class="badge  bg-gradient-dark"> Inactivo
                                                             </span></a>
                                                     @endif
                                                 </td>
@@ -87,8 +75,8 @@
                                                 </td>
                                                 <td class="align-middle">
                                                     <a href="{{ route('casa.edit', $casa) }}"
-                                                        class=" badge badge-sm bg-gradient-info  text-xs"
-                                                        data-toggle="tooltip" data-original-title="Edit">
+                                                        class=" badge  bg-gradient-info  text-xs" data-toggle="tooltip"
+                                                        data-original-title="Edit">
                                                         edit
                                                     </a>
                                                 </td>

@@ -8,17 +8,7 @@
     <div class="container-fluid py-4">
         <div class="row">
             <div class="px-2 pt-2 col-md-10">
-                @if (session('status'))
-                    <div class="alert alert-info alert-dismissible fade show" role="alert">
-                        <p class="text-white mb-0">{{ session('status') }}</p>
-                    </div>
-                @endif
-                @if ($message = session()->has('error'))
-                    <div class="alert alert-danger" role="alert">
-                        <p class="text-white mb-0">{{ session('status') }}</p>
-                    </div>
-                @endif
-
+                @include('components.alert')
             </div>
             <div class="col-12">
                 <div class="multisteps-form">
@@ -53,7 +43,7 @@
                                     <div class="multisteps-form__content">
                                         <div class="row mt-3">
                                             <div class="col-12 col-sm-6">
-                                                <label>Name</label>
+                                                <label>Nombreme</label>
                                                 <input class="multisteps-form__input form-control" type="text"
                                                     name="name" value="{{ old('name') }}" onfocus="focused(this)"
                                                     onfocusout="defocused(this)">
@@ -119,7 +109,7 @@
                                         </div>
                                         <div class="button-row d-flex mt-4">
                                             <button class="btn bg-gradient-dark ms-auto mb-0 js-btn-next" type="button"
-                                                title="Next">Next</button>
+                                                title="Next">Siguiente</button>
                                         </div>
                                     </div>
                                 </div>
@@ -142,9 +132,9 @@
                                         </div>
                                         <div class="button-row d-flex mt-4">
                                             <button class="btn bg-gradient-secondary mb-0 js-btn-prev" type="button"
-                                                title="Prev">Prev</button>
+                                                title="Prev">Anterior</button>
                                             <button class="btn bg-gradient-dark ms-auto mb-0 js-btn-next" type="button"
-                                                title="Next">Next</button>
+                                                title="Next">Siguiente</button>
                                         </div>
                                     </div>
                                 </div>
@@ -197,9 +187,9 @@
                                             <div class="row">
                                                 <div class="button-row d-flex mt-4 col-12">
                                                     <button class="btn bg-gradient-secondary mb-0 js-btn-prev"
-                                                        type="button" title="Prev">Prev</button>
+                                                        type="button" title="Prev">Anterior</button>
                                                     <button class="btn bg-gradient-dark ms-auto mb-0 js-btn-next"
-                                                        type="button" title="Next">Next</button>
+                                                        type="button" title="Next">Siguiente</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -294,70 +284,14 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-12">
-                                            <label class="mt-4">Tags</label>
-                                            <div class="choices" data-type="select-multiple" role="combobox"
-                                                aria-autocomplete="list" aria-haspopup="true" aria-expanded="false">
-                                                <div class="choices__inner"><select class="form-control choices__input"
-                                                        name="choices-tags" id="choices-tags-edit" multiple=""
-                                                        hidden="" tabindex="-1" data-choice="active">
-                                                        <option value="Choice 1">In Stock</option>
-                                                        <option value="Two">Out of Stock</option>
-                                                    </select>
-                                                    <div class="choices__list choices__list--multiple">
-                                                        <div class="choices__item choices__item--selectable"
-                                                            data-item="" data-id="1" data-value="Choice 1"
-                                                            data-custom-properties="null" aria-selected="true"
-                                                            data-deletable="">In Stock<button type="button"
-                                                                class="choices__button"
-                                                                aria-label="Remove item: 'Choice 1'" data-button="">Remove
-                                                                item</button></div>
-                                                        <div class="choices__item choices__item--selectable"
-                                                            data-item="" data-id="2" data-value="Two"
-                                                            data-custom-properties="null" aria-selected="true"
-                                                            data-deletable="">Out of Stock<button type="button"
-                                                                class="choices__button" aria-label="Remove item: 'Two'"
-                                                                data-button="">Remove item</button></div>
-                                                    </div><input type="text"
-                                                        class="choices__input choices__input--cloned" autocomplete="off"
-                                                        autocapitalize="off" spellcheck="false" role="textbox"
-                                                        aria-autocomplete="list" aria-label="false">
-                                                </div>
-                                                <div class="choices__list choices__list--dropdown" aria-expanded="false">
-                                                    <div class="choices__list" aria-multiselectable="true"
-                                                        role="listbox">
-                                                        <div id="choices--choices-tags-edit-item-choice-1"
-                                                            class="choices__item choices__item--choice choices__item--selectable is-highlighted"
-                                                            role="option" data-choice="" data-id="1"
-                                                            data-value="Choice 4" data-select-text="Press to select"
-                                                            data-choice-selectable="" aria-selected="true">Black Friday
-                                                        </div>
-                                                        <div id="choices--choices-tags-edit-item-choice-5"
-                                                            class="choices__item choices__item--choice choices__item--disabled"
-                                                            role="option" data-choice="" data-id="5"
-                                                            data-value="One" data-select-text="Press to select"
-                                                            data-choice-disabled="" aria-disabled="true">Expired</div>
-                                                        <div id="choices--choices-tags-edit-item-choice-3"
-                                                            class="choices__item choices__item--choice choices__item--selectable"
-                                                            role="option" data-choice="" data-id="3"
-                                                            data-value="Choice 2" data-select-text="Press to select"
-                                                            data-choice-selectable="">Out of Stock</div>
-                                                        <div id="choices--choices-tags-edit-item-choice-4"
-                                                            class="choices__item choices__item--choice choices__item--selectable"
-                                                            role="option" data-choice="" data-id="4"
-                                                            data-value="Choice 3" data-select-text="Press to select"
-                                                            data-choice-selectable="">Sale</div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div><input type="file" id="archivoInput" style="display: none;"
+                                        <input type="file" id="archivoInput" style="display: none;"
                                             name="imagenes[]">
 
                                         <div class="button-row d-flex mt-2">
                                             <button class="btn bg-gradient-secondary mb-0 js-btn-prev" type="button"
-                                                title="Prev">Prev</button>
+                                                title="Prev">Anterior</button>
                                             <button class="btn bg-gradient-dark ms-auto mb-0" type="submit"
-                                                id="copiarArchivo" title="Send">Send</button>
+                                                id="copiarArchivo" title="Send">Crear</button>
 
 
                                         </div>
@@ -380,11 +314,11 @@
 @endsection
 
 @push('js')
-
-
     {{-- aitpcp,´letar --}}
     <script src="{{ asset('/assets/js/autocomplete.js') }}"></script>
     {{-- scrrip de de dropzone --}}
+    <script src="{{ asset('/assets/js/plugins/wizzard.js') }}"></script>
+
     <script type="text/javascript">
         Dropzone.autoDiscover = false;
         var drop = document.getElementById('dropzone')
@@ -393,7 +327,7 @@
             autoProcessQueue: false, // Desactiva la carga automática
             uploadMultiple: true,
             maxFilezise: 10,
-            maxFiles: 2,
+            maxFiles: 3,
             addRemoveLinks: true
         });
 

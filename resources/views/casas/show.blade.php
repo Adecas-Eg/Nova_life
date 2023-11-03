@@ -307,6 +307,8 @@
                                             <div>
                                                 <h6 class="fw-bold mb-1">{{ $comment->user->username }}</h6>
                                                 <div class="d-flex align-items-center mb-3">
+                                                    <button class="btn bg-gradient-primary mb-0" onclick="argon.showSwal('auto-close')">Try me!</button>
+
                                                     @if ($comment->user->id == auth()->user()->id)
                                                         <p class="mb-0 small lh-sm ">
                                                             {{ $comment->created }}
@@ -416,6 +418,8 @@
 
 @push('js')
     <script src="{{ asset('assets/js/plugins/chartjs.min.js') }}"></script>
+    <script src="{{ asset('assets/js/plugins/sweet.js') }}"></script>
+
     <script>
         let foto = document.getElementById('div1');
         let recorrido = document.getElementById('div2');

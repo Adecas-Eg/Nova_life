@@ -102,7 +102,7 @@
             {{-- TABLES LINK --}}
             @can('casa.administer')
                 <li class="nav-item move-on-hover">
-                    <a class="nav-link {{ str_contains(request()->url(), 'administer') == true ? 'active' : '' }}"
+                    <a class="nav-link {{ str_contains(request()->url(), 'casa/administer') == true ? 'active' : '' }}"
                         href="{{ route('casa.administer') }}">
                         <div
                             class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">

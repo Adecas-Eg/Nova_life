@@ -20,8 +20,8 @@
                     <div class="col-lg-4 col-md-6 my-sm-auto ms-sm-auto me-sm-0 mx-auto mt-3">
                         <div class="nav-wrapper position-relative end-0 ">
 
-                            <a class="nav-link mb-0 px-0 py-1 btn  bg-gradient-dark active d-flex align-items-center justify-content-center "
-                                data-bs-toggle="tab" href="javascript:;" role="tab" aria-selected="true">
+                            <a class="nav-link mb-0 px-0 py-1    btn bg-gradient-default active d-flex align-items-center justify-content-center "
+                                href="{{route('plans')}}" >
                                 <i class="ni ni-app"></i>
                                 <span class="ms-2  ">Planes</span>
                             </a>
@@ -32,18 +32,7 @@
         </div>
         <div class="container-fluid py-4">
             <div class="row">
-                @if (session('info'))
-                    <div class="alert alert-info mx-3 alert-dismissible fade show" role="alert">
-                        <span class="alert-icon alert text-white"><i class="ni ni-like-2"></i></span>
-                        <span class="text-white mb-0">{{ session('info') }}</span>
-                    </div>
-                @endif
-                @if ($message = session()->has('error'))
-                    <div class="alert alert-danger" role="alert">
-                        <p class="text-white mb-0">{{ session('info') }}</p>
-                    </div>
-                @endif
-
+                @include('components.alert')
             </div>
             <div class="col-md-10">
                 <div class="card">
