@@ -10,8 +10,9 @@
                     </h6>
                     <div class="nav-wrapper position-relative ms-auto w-50">
                         <ul class="nav nav-pills nav-fill p-1" role="tablist">
+
                             <li class="nav-item ">
-                                <a class="nav-link mb-0 px-0 py-1 active" data-bs-toggle="tab" href="#cam1" role="tab"
+                                <a class="nav-link mb-0 px-0 py-1 " data-bs-toggle="tab" href="#cam1" role="tab"
                                     aria-controls="cam1" aria-selected="false">
                                     Imagenes
                                 </a>
@@ -49,8 +50,8 @@
                 </div>
                 <div class="card-body p-3 mt-2">
                     <div class="tab-content" id="v-pills-tabContent">
-                        <div class="tab-pane fade position-relative border-radius-lg" id="cam1" role="tabpanel"
-                            aria-labelledby="cam1">
+                        <div class="tab-pane fade position-relative border-radius-lg  active show" id="cam1"
+                            role="tabpanel" aria-labelledby="cam1">
                             <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
                                 <div class="carousel-inner">
                                     @foreach ($casa->media as $media)
@@ -80,29 +81,15 @@
                             </div>
                         </div>
                         <div class="tab-pane fade position-relative height-400 border-radius-lg" id="cam2"
-                            role="tabpanel" aria-labelledby="cam2"
-                            style="background-image: url('https://raw.githubusercontent.com/creativetimofficial/public-assets/master/argon-dashboard-pro/assets/img/smart-home-2.jpg'); background-size:cover;">
+                            role="tabpanel" aria-labelledby="cam2">
                             <div class="position-absolute d-flex top-0 w-100">
-                                <p class="text-white p-3 mb-0">17.05.2021 4:35PM</p>
-                                <div class="ms-auto p-3">
-                                    <span class="badge badge-secondary">
-                                        <i class="fas fa-dot-circle text-danger" aria-hidden="true"></i>
-                                        Recording</span>
-                                </div>
+                                <iframe width="560" height="315"
+                                    src="https://virtualitour.es/tours/45lQhhMNovJnNOdeRn06?autoLoad=false" frameborder="0"
+                                    allowfullscreen></iframe>
+                                    b4-from
                             </div>
                         </div>
-                        <div class="tab-pane fade position-relative height-400 border-radius-lg active show" id="cam3"
-                            role="tabpanel" aria-labelledby="cam3"
-                            style="background-image: url('https://raw.githubusercontent.com/creativetimofficial/public-assets/master/argon-dashboard-pro/assets/img/smart-home-3.jpg'); background-size:cover;">
-                            <div class="position-absolute d-flex top-0 w-100">
-                                <p class="text-white p-3 mb-0">17.05.2021 4:57PM</p>
-                                <div class="ms-auto p-3">
-                                    <span class="badge badge-secondary">
-                                        <i class="fas fa-dot-circle text-danger" aria-hidden="true"></i>
-                                        Recording</span>
-                                </div>
-                            </div>
-                        </div>
+
                     </div>
                 </div>
             </div>

@@ -22,7 +22,7 @@ function initAutoComplete() {
         ubicacion['latitud'] = await place.geometry.location.lat();
         ubicacion['longitud'] = await place.geometry.location.lng();
         ubicacion['dirrecion'] = await place.formatted_address;
-        // mandamos los valores en formato json a input geometry 
+        // mandamos los valores en formato json a input geometry
         document.getElementsByName('geometry')[0].setAttribute('value', JSON.stringify(ubicacion));
         document.getElementsByName('geometry')[0].value = JSON.stringify(ubicacion);
         console.log(document.getElementsByName('geometry')[0].value);

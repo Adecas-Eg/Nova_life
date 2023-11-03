@@ -2,13 +2,9 @@
 
 @section('content')
     {{-- llama al nav var de invitado --}}
-    <div class="container position-sticky z-index-sticky top-0">
-        <div class="row">
-            <div class="col-12">
-                @include('layouts.navbars.guest.navbar')
-            </div>
-        </div>
-    </div>
+    @include('layouts.navbars.guest.navbar')
+
+
     <main class="main-content mt-0 ps">
         <div class="page-header align-items-start min-vh-50 pt-7 pb-9 m-3 border-radius-lg"
             style="background-image: url('https://raw.githubusercontent.com/creativetimofficial/public-assets/master/argon-dashboard-pro/assets/img/signin-cover.jpg');">
@@ -16,9 +12,8 @@
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-lg-5 text-center mx-auto">
-                        <h1 class="text-white mb-2 mt-5">Nova life!!!</h1>
+                        <h1 class="text-white mb-2 ">Nova life!!!</h1>
                         <p class="text-lead text-white">Aqui podras encontrar esa la casa de tus sueños!!!</p>
-
                     </div>
                 </div>
             </div>
@@ -76,7 +71,7 @@
                         <div class="card-footer text-center pt-0 px-lg-2 px-1">
                             <p class="mb-4 text-sm mx-auto">
                                 ¿No tienes una cuenta?
-                                <a href="{{route('register')}}"
+                                <a href="{{ route('register') }}"
                                     class="text-warning text-gradient font-weight-bold">Registrate </a>
                             </p>
                         </div>

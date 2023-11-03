@@ -25,7 +25,7 @@ return new class extends Migration {
             $table->string('parqueaderos');
             $table->string('pisos');
             $table->string('area');
-            $table->string('tags');
+            $table->string('tags')->nullable();
 
             $table->string('url_3d');
             $table->float('antiguedad');
