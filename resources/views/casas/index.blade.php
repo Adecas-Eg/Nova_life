@@ -34,12 +34,12 @@
                                     <input type="text" name="buscar" class="form-control border border-secondary"
                                         placeholder="Ubicacion" value="{{ $buscar }}">
 
-                                    <button type="button" class="form-control border border-primary dropdown-toggle"
+                                    {{-- <button type="button" class="form-control border border-primary dropdown-toggle"
                                         data-bs-toggle="dropdown" aria-expanded="false">
                                         Transsacion
-                                    </button>
+                                    </button> --}}
 
-                                    <ul class="dropdown-menu dropdown-menu-dark">
+                                    {{-- <ul class="dropdown-menu dropdown-menu-dark">
                                         <div class="row">
                                             <div class="col-lg-6">
                                                 <div class="form-check  ">
@@ -143,7 +143,7 @@
                                             </label>
                                         </div>
 
-                                    </ul>
+                                    </ul> --}}
                                     <button class="input-group-text bg-gradient-dark text-body"><i
                                             class="fas fa-search text-white" aria-hidden="true"></i></button>
                                 </div>

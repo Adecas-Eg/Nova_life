@@ -42,9 +42,7 @@
                                             <input class="multisteps-form__input form-control" type="text" name="name"
                                                 value="{{ old('name', $casa->name) }}" onfocus="focused(this)"
                                                 onfocusout="defocused(this)">
-                                            @error('name')
-                                                <p class="text-danger text-xs pt-1"> {{ $message }} </p>
-                                            @enderror
+                                             @include('components.validator', ['var' => 'name'])
                                         </div>
                                         <div class="col-12 col-sm-6 mt-3 mt-sm-0">
                                             <label>Tipo de oferta</label>
@@ -55,9 +53,7 @@
                                                 <option value="arriendo" @if ($casa->tipo_oferta === 'arriendo') selected @endif>
                                                     Arriendo</option>
                                             </select>
-                                            @error('tipo_oferta')
-                                                <p class="text-danger text-xs pt-1"> {{ $message }} </p>
-                                            @enderror
+                                             @include('components.validator', ['var' => 'tipo_oferta'])
                                         </div>
                                     </div>
                                     <div class="row">
@@ -67,9 +63,7 @@
                                                 <label for="example-text-input"
                                                     class="form-control-label">Descripcion</label>
                                                 <textarea class="form-control" name="descripcion" {{ old('descripcion', $casa->descripcion) }}></textarea>
-                                                @error('descripcion')
-                                                    <p class="text-danger text-xs pt-1"> {{ $message }} </p>
-                                                @enderror
+                                                 @include('components.validator', ['var' => 'descripcion'])
 
                                             </div>
 
@@ -98,9 +92,7 @@
                                                 <option value="bodega" @if ($casa->tipo_inmueble == 'bodega') selected @endif>
                                                     Bodega
                                                 </option>
-                                                @error('tipo_inmueble')
-                                                    <p class="text-danger text-xs pt-1"> {{ $message }} </p>
-                                                @enderror
+                                                 @include('components.validator', ['var' => 'tipo_inmueble'])
                                             </select>
                                             <div class="form-group">
                                                 <label for="example-text-input" class="form-control-label">Estrato</label>
@@ -118,9 +110,7 @@
                                                         @if ($casa->estrato === '3') selected @endif>3
                                                     </option>
                                                 </select>
-                                                @error('estrato')
-                                                    <p class="text-danger text-xs pt-1"> {{ $message }} </p>
-                                                @enderror
+                                                 @include('components.validator', ['var' => 'estrato'])
                                             </div>
                                         </div>
                                     </div>
@@ -144,9 +134,7 @@
 
                                                 </div>
                                             </div>
-                                            @error('imagenes')
-                                                <p class="text-danger text-xs pt-1"> {{ $message }} </p>
-                                            @enderror
+                                             @include('components.validator', ['var' => 'imagenes'])
                                         </div>
                                     </div>
                                     <div class="button-row d-flex mt-4">
@@ -170,9 +158,7 @@
                                                 <input class="multisteps-form__input form-control" type="text"
                                                     value="{{ old('direccion', $casa->direccion) }}" name="direccion"
                                                     id="ubicacion" onfocus="focused(this)" onfocusout="defocused(this)">
-                                                @error('direccion')
-                                                    <p class="text-danger text-xs pt-1"> {{ $message }} </p>
-                                                @enderror
+                                                 @include('components.validator', ['var' => 'direccion'])
 
                                             </div>
                                         </div>
@@ -184,9 +170,7 @@
                                                     value="New York" name="departamento"
                                                     value="{{ old('departamento', $casa->departamento) }}"
                                                     onfocus="focused(this)" onfocusout="defocused(this)">
-                                                @error('departamento')
-                                                    <p class="text-danger text-xs pt-1"> {{ $message }} </p>
-                                                @enderror
+                                                 @include('components.validator', ['var' => 'departamento'])
                                             </div>
                                         </div>
                                         <div class="col-12 mt-3">
@@ -196,9 +180,7 @@
                                                 <input class="multisteps-form__input form-control" type="text"
                                                     name="ciudad" {{ old('ciudad', $casa->ciudad) }}
                                                     onfocus="focused(this)" onfocusout="defocused(this)">
-                                                @error('ciudad')
-                                                    <p class="text-danger text-xs pt-1"> {{ $message }} </p>
-                                                @enderror
+                                                 @include('components.validator', ['var' => 'ciudad'])
 
                                             </div>
                                         </div>
@@ -226,9 +208,7 @@
                                                 name="precio" value="{{ old('precio', $casa->precio) }}"
                                                 placeholder="$300.000.000" onfocus="focused(this)"
                                                 onfocusout="defocused(this)">
-                                            @error('precio')
-                                                <p class="text-danger text-xs pt-1"> {{ $message }} </p>
-                                            @enderror
+                                             @include('components.validator', ['var' => 'precio'])
 
                                         </div>
                                         <div class="col-6">
@@ -237,9 +217,7 @@
                                             <input class=" multisteps-form__input form-control" type="number"
                                                 name="antiguedad" value="{{ old('antiguedad', $casa->antiguedad) }}"
                                                 onfocus="focused(this)" placeholder="20" onfocusout="defocused(this)">
-                                            @error('antiguedad')
-                                                <p class="text-danger text-xs pt-1"> {{ $message }} </p>
-                                            @enderror
+                                             @include('components.validator', ['var' => 'antiguedad'])
 
                                         </div>
                                         <div class="col-3">
@@ -247,9 +225,7 @@
                                             <label>N° Baños</label>
                                             <input class="multisteps-form__input form-control" type="number"
                                                 value="{{ old('baños', $casa->baños) }}" name="baños">
-                                            @error('baños')
-                                                <p class="text-danger text-xs pt-1"> {{ $message }} </p>
-                                            @enderror
+                                             @include('components.validator', ['var' => 'baños'])
 
                                         </div>
                                     </div>
@@ -260,9 +236,7 @@
                                             <input class="multisteps-form__input form-control" type="number"
                                                 value="{{ old('parqueaderos', $casa->parqueaderos) }}"
                                                 name="parqueaderos">
-                                            @error('parqueaderos')
-                                                <p class="text-danger text-xs pt-1"> {{ $message }} </p>
-                                            @enderror
+                                             @include('components.validator', ['var' => 'parqueaderos'])
 
                                         </div>
                                         <div class="col-6">
@@ -272,9 +246,7 @@
                                             <input class="form-control multisteps-form__input" type="number"
                                                 name="area" value="{{ old('area', $casa->area) }}">
                                             <div class="notification is-danger">
-                                                @error('area')
-                                                    <p class="text-danger text-xs pt-1"> {{ $message }} </p>
-                                                @enderror
+                                                 @include('components.validator', ['var' => 'area'])
                                             </div>
                                         </div>
                                         <div class="col-6">
@@ -284,9 +256,7 @@
                                                 <input class="form-control align-content-between multisteps-form__input"
                                                     type="number" value="{{ old('pisos', $casa->pisos) }}"
                                                     name="pisos">
-                                                @error('pisos')
-                                                    <p class="text-danger text-xs pt-1"> {{ $message }} </p>
-                                                @enderror
+                                                 @include('components.validator', ['var' => 'pisos'])
                                             </div>
                                         </div>
                                         <div class="col-6">
@@ -296,9 +266,7 @@
                                                 <input class="form-control align-content-between multisteps-form__input"
                                                     type="text" name="url_3d"
                                                     value="{{ old('url_3d', $casa->url_3d) }}">
-                                                @error('url_3d')
-                                                    <p class="text-danger text-xs pt-1"> {{ $message }} </p>
-                                                @enderror
+                                                 @include('components.validator', ['var' => 'url_3d'])
                                             </div>
                                         </div>
                                     </div>
@@ -309,8 +277,6 @@
                                             title="Prev">Anterior</button>
                                         <button class="btn bg-gradient-dark ms-auto mb-0" type="submit"
                                             id="copiarArchivo" title="Send">Crear</button>
-
-
                                     </div>
                                 </div>
                             </div>

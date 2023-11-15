@@ -69,24 +69,23 @@ class CasaController extends Controller
     public function store(StoreCasa $request)
     {
         $geometry = (Object) json_decode($request->geometry);
-        $casa = Casa::create($request->validated());
-        //logica de multiples imagens con librerias
-        $casa->user_id = auth()->user()->id;
-        $casa->status = 1;
-        if ($geometry) {
+
+        if (request()->hasFile('imagenes') && $geometry) {
+            $casa = Casa::create($request->validated());
+            //logica de multiples imagens con librerias
+            $casa->user_id = auth()->user()->id;
+            $casa->status = 1;
             $casa->latitud = $geometry->latitud;
             $casa->longitud = $geometry->longitud;
-        }
-        $casa->save();
-        if (request()->hasFile('imagenes')) {
+            $casa->save();
             $casa->addMultipleMediaFromRequest(['imagenes'])
                 ->each(function ($fileAdder) {
                     $fileAdder->toMediaCollection('casas');
                 });
+            return redirect()->route('casa.administer')->with('info', 'Inmueble creado exitosamente');
         }
-
+        return back()->with('error', 'Campo imagen debe ser obligatorio');
         //back se usa para regresar a la pagina anterior
-        return redirect()->route('casa.administer')->with('info', 'Inmueble creado exitosamente');
     }
 
     public function show(Casa $casa)
