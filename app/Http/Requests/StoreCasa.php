@@ -37,6 +37,7 @@ class StoreCasa extends FormRequest
             'area' => 'required|max:50',
             'antiguedad' => 'required|max:25',
             'url_3d' => 'required'
+            
         ];
     }
 }

@@ -37,7 +37,7 @@ class CasaController extends Controller
         if (Auth()->user() == null) {
             return view('casas.home_guest');
         } else {
-            return view('casas.home');
+            return redirect()->route('casa.index');
         }
     }
 
@@ -46,10 +46,12 @@ class CasaController extends Controller
     {
         $buscar = $request->buscar;
         //buscar en array
-        $resultados = Casa::whereIn('tipo_inmueble', ['apartamento'])->get();
+        // return $request;
+        $tipo_inmueble[] = $request->transaccion;
         $casas = Casa::with(['media'])
             ->whereRaw("LOWER(ciudad) LIKE ?", ['%' . strtolower($buscar) . '%'])
             ->where('status', '=', '1')
+            ->where('tipo_inmueble', $tipo_inmueble )
             ->orderBy('id')
             ->paginate(4);
         // return $resultados;
@@ -68,9 +70,12 @@ class CasaController extends Controller
 
     public function store(StoreCasa $request)
     {
-        $geometry = (Object) json_decode($request->geometry);
+        $validate = $request->validate([
+            'imagenes' => 'required'
+        ]);
 
-        if (request()->hasFile('imagenes') && $geometry) {
+        $geometry = (Object) json_decode($request->geometry);
+        if ($validate == true) {
             $casa = Casa::create($request->validated());
             //logica de multiples imagens con librerias
             $casa->user_id = auth()->user()->id;
@@ -81,10 +86,9 @@ class CasaController extends Controller
             $casa->addMultipleMediaFromRequest(['imagenes'])
                 ->each(function ($fileAdder) {
                     $fileAdder->toMediaCollection('casas');
-                });
+            });
             return redirect()->route('casa.administer')->with('info', 'Inmueble creado exitosamente');
         }
-        return back()->with('error', 'Campo imagen debe ser obligatorio');
         //back se usa para regresar a la pagina anterior
     }
 

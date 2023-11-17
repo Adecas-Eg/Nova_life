@@ -34,19 +34,19 @@
                                     <input type="text" name="buscar" class="form-control border border-secondary"
                                         placeholder="Ubicacion" value="{{ $buscar }}">
 
-                                    {{-- <button type="button" class="form-control border border-primary dropdown-toggle"
+                                    <button type="button" class="form-control border border-primary dropdown-toggle"
                                         data-bs-toggle="dropdown" aria-expanded="false">
                                         Transsacion
-                                    </button> --}}
+                                    </button>
 
-                                    {{-- <ul class="dropdown-menu dropdown-menu-dark">
+                                    <ul class="dropdown-menu dropdown-menu-dark bg-white">
                                         <div class="row">
                                             <div class="col-lg-6">
-                                                <div class="form-check  ">
+                                                <div class="form-check bg">
                                                     <input class="form-check-input input-group-outline" type="checkbox"
-                                                        id="flexCheckDefault" name="transaccion" value="apartamento">
-                                                    <i class="fa fa-building" aria-hidden="true"></i>
-                                                    <label class="form-check-label text-white" for="flexCheckDefault">
+                                                        id="flexCheckDefault" name="transaccion[]" value="apartamento">
+                                                    <i class="fa fa-building       text-gradient text-dark" aria-hidden="true"></i>
+                                                    <label class="form-check-label text-gradient text-dark    " for="flexCheckDefault">
                                                         Apartamento
                                                     </label>
                                                 </div>
@@ -54,9 +54,9 @@
                                             <div class="col-lg-6">
                                                 <div class="form-check  ">
                                                     <input class="form-check-input input-group-outline" type="checkbox"
-                                                        id="flexCheckDefault" name="transaccion" value="apartaestudio">
-                                                    <i class="fa fa-university" aria-hidden="true"></i>
-                                                    <label class="form-check-label text-white" for="flexCheckDefault">
+                                                        id="flexCheckDefault" name="transaccion[]" value="apartaestudio">
+                                                    <i class="fa fa-university      text-gradient text-dark" aria-hidden="true"></i>
+                                                    <label class="form-check-label text-gradient text-dark    " for="flexCheckDefault">
                                                         Apartaestudio
                                                     </label>
                                                 </div>
@@ -66,9 +66,9 @@
                                             <div class="col-lg-6">
                                                 <div class="form-check  ">
                                                     <input class="form-check-input input-group-outline" type="checkbox"
-                                                        id="flexCheckDefault" name="transaccion" value="casa">
-                                                    <i class="fa fa-home" aria-hidden="true"></i>
-                                                    <label class="form-check-label text-white" for="flexCheckDefault">
+                                                        id="flexCheckDefault" name="transaccion[]" value="casa">
+                                                    <i class="fa fa-home text-gradient text-dark" aria-hidden="true"></i>
+                                                    <label class="form-check-label text-gradient text-dark    " for="flexCheckDefault">
                                                         Casa
                                                     </label>
                                                 </div>
@@ -76,9 +76,9 @@
                                             <div class="col-lg-6">
                                                 <div class="form-check  ">
                                                     <input class="form-check-input input-group-outline" type="checkbox"
-                                                        id="flexCheckDefault" name="transaccion" value="cabaña">
-                                                    <i class="fa fa-money" aria-hidden="true"></i>
-                                                    <label class="form-check-label text-white" for="flexCheckDefault">
+                                                        id="flexCheckDefault" name="transaccion[]" value="cabaña">
+                                                    <i class="fa fa-money    text-gradient text-dark" aria-hidden="true"></i>
+                                                    <label class="form-check-label text-gradient text-dark    " for="flexCheckDefault">
                                                         Cabaña
                                                     </label>
                                                 </div>
@@ -88,9 +88,9 @@
                                             <div class="col-lg-6">
                                                 <div class="form-check  ">
                                                     <input class="form-check-input input-group-outline" type="checkbox"
-                                                        id="flexCheckDefault" name="transaccion" value="finca">
-                                                    <i class="fa fa-money" aria-hidden="true"></i>
-                                                    <label class="form-check-label text-white" for="flexCheckDefault">
+                                                        id="flexCheckDefault" name="transaccion[]" value="finca">
+                                                    <i class="fa fa-money   text-gradient text-dark" aria-hidden="true"></i>
+                                                    <label class="form-check-label text-gradient text-dark    " for="flexCheckDefault">
                                                         Finca
                                                     </label>
                                                 </div>
@@ -98,9 +98,9 @@
                                             <div class="col-lg-6">
                                                 <div class="form-check  ">
                                                     <input class="form-check-input input-group-outline" type="checkbox"
-                                                        id="flexCheckDefault" name="transaccion" value="habitacion">
-                                                    <i class="fa fa-money" aria-hidden="true"></i>
-                                                    <label class="form-check-label text-white" for="flexCheckDefault">
+                                                        id="flexCheckDefault" name="transaccion[]" value="habitacion">
+                                                    <i class="fa fa-money  text-gradient text-dark" aria-hidden="true"></i>
+                                                    <label class="form-check-label text-gradient text-dark    " for="flexCheckDefault">
                                                         Habitacion
                                                     </label>
                                                 </div>
@@ -108,9 +108,9 @@
                                             <div class="col-lg-6">
                                                 <div class="form-check  ">
                                                     <input class="form-check-input input-group-outline" type="checkbox"
-                                                        id="flexCheckDefault" name="transaccion" value="bodega">
-                                                    <i class="fa fa-money" aria-hidden="true"></i>
-                                                    <label class="form-check-label text-white" for="flexCheckDefault">
+                                                        id="flexCheckDefault" name="transaccion[]" value="bodega">
+                                                    <i class="fa fa-money text-gradient text-dark" aria-hidden="true"></i>
+                                                    <label class="form-check-label text-gradient text-dark    " for="flexCheckDefault">
                                                         Bodega
                                                     </label>
                                                 </div>
@@ -143,7 +143,7 @@
                                             </label>
                                         </div>
 
-                                    </ul> --}}
+                                    </ul>
                                     <button class="input-group-text bg-gradient-dark text-body"><i
                                             class="fas fa-search text-white" aria-hidden="true"></i></button>
                                 </div>
@@ -191,3 +191,5 @@
 
     </div>
 @endsection
+@push('js')
+@endpush

@@ -6,7 +6,6 @@
 
 
 @section('content')
-    @include('layouts.navbars.auth.topnav', ['title' => 'Casas'])
 
     <body>
         <div class="image-container set-full-height"

@@ -31,10 +31,18 @@ class PageController extends Controller
     {
         return view("pages.sobre");
     }
-
-    public function politicas()
+    public function privacidad()
     {
-        return view("pages.politicas");
+        return view("pages.privacidad");
+    }
+    public function faq()
+    {
+        return view("pages.faq");
+    }
+
+    public function terminos()
+    {
+        return view("pages.terminos");
     }
     public function plans()
     {

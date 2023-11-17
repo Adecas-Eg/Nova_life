@@ -38,7 +38,7 @@
                                 @csrf
                                 <label>Email</label>
                                 <div class="mb-3">
-                                    <input type="email" name="email" value="matiose12@gmail.com" class="form-control"
+                                    <input type="email" name="email"  class="form-control"
                                         placeholder="Email" aria-label="Email">
                                 </div>
                                 @error('email')
@@ -46,7 +46,7 @@
                                 @enderror
                                 <label>Contraseña</label>
                                 <div class="mb-3">
-                                    <input type="password" name="password" value="secret" class="form-control"
+                                    <input type="password" name="password" class="form-control"
                                         placeholder="Password" aria-label="Password">
                                 </div>
                                 @error('password')

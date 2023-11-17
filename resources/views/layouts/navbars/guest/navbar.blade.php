@@ -47,7 +47,7 @@
                             </li>
                             {{-- acomodar este linl --}}
                             <li class="nav-item">
-                                <a class="nav-link me-2" href="{{ route('login') }}">
+                                <a class="nav-link me-2" href="{{ route('sobre') }}">
                                     <i class="fa fa-windows opacity-6 text-dark me-1"></i>
                                     Sobre nosotros
                                 </a>

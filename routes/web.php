@@ -109,6 +109,7 @@ Route::get('/dashboard', [HomeController::class, 'dashboard'])->name('dashboard'
 Route::get('/principals', [CasaController::class, 'home'])->name('casa.home');
 
 
+
 Route::prefix('comment')->middleware('auth')->group(function () {
     Route::get('/', [CommentController::class, 'index'])->name('comment.index');
     Route::post('/{id}', [CommentController::class, 'store'])->name('comment.store');
@@ -118,16 +119,16 @@ Route::prefix('comment')->middleware('auth')->group(function () {
 
 
 Route::prefix('casa')->controller(CasaController::class)->middleware('auth')->group(function () {
-    Route::get('/',  'index')->name('casa.index');
+    Route::get('/', 'index')->name('casa.index');
     Route::get('/filter', 'index')->name('casa.filter');
-    Route::get('/create',  'create')->name('casa.create');
-    Route::post('/',  'store')->name('casa.store');
-    Route::get('/{casa}/edit',  'show')->name('casa.show');
-    Route::get('/administer',  'administer')->name('casa.administer');
-    Route::get('/{casa}',  'edit')->name('casa.edit');
-    Route::patch('/{casa}',  'update')->name('casa.update');
-    Route::get('/change_status/{casa}' , 'change_status')->name('casa.change_status');
-    Route::post('/category','category')->name('casa.category');
+    Route::get('/create', 'create')->name('casa.create');
+    Route::post('/', 'store')->name('casa.store');
+    Route::get('/{casa}/edit', 'show')->name('casa.show');
+    Route::get('/administer', 'administer')->name('casa.administer');
+    Route::get('/{casa}', 'edit')->name('casa.edit');
+    Route::patch('/{casa}', 'update')->name('casa.update');
+    Route::get('/change_status/{casa}', 'change_status')->name('casa.change_status');
+    Route::post('/category', 'category')->name('casa.category');
 
 });
 
@@ -140,6 +141,13 @@ Route::prefix('/admin')->middleware('auth')->group(function () {
     Route::get('/user/change_status/{user}', [UserController::class, 'change_status'])->name('user.change_status');
 });
 
+Route::prefix('company')->group(function () {
+    Route::get('/terminos', [PageController::class, 'terminos'])->name('terminos');
+    Route::get('/faq', [PageController::class, 'faq'])->name('faq');
+    Route::get('/sobre', [PageController::class, 'sobre'])->name('sobre');
+    Route::get('/privacidad', [PageController::class, 'privacidad'])->name('privacidad');
+});
+
 Route::prefix('utils')->middleware('auth')->group(function () {
     Route::get('/virtual-reality', [PageController::class, 'vr'])->name('virtual-reality');
     Route::get('/rtl', [PageController::class, 'rtl'])->name('rtl');
@@ -148,9 +156,7 @@ Route::prefix('utils')->middleware('auth')->group(function () {
     Route::get('/profile-static', [PageController::class, 'profile'])->name('profile-static');
     Route::get('/sign-in-static', [PageController::class, 'signin'])->name('sign-in-static');
     Route::get('/sign-up-static', [PageController::class, 'signup'])->name('sign-up-static');
-    Route::get('/politicas', [PageController::class, 'politicas'])->name('politicas');
     Route::get('/plans', [PageController::class, 'plans'])->name('plans');
-    Route::get('/sobre', [PageController::class, 'sobre'])->name('sobre');
     Route::get('/{page}', [PageController::class, 'index'])->name('page');
     Route::post('logout', [LoginController::class, 'logout'])->name('logout');
 });

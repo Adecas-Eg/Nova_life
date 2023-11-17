@@ -17,19 +17,27 @@
         <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">{{-- div del buscador  --}}
             <div class="ms-md-auto pe-md-3 d-flex align-items-center">
                 <ul class="navbar-nav  justify-content-end">
-                    <li class="nav-item dropdown pe-2 d-flex align-items-center">
-                        <a href="javascript:;" class="nav-link text-white p-0 r" id="dropdownMenuButton"
+                    <li class="nav-item d-xl-none ps-3 mx-2 mt-0 d-flex align-items-center">
+                        <a href="javascript:;" class="nav-link text-white p-0" id="iconNavbarSidenav">
+                            <div class="sidenav-toggler-inner">
+                                <i class="sidenav-toggler-line bg-white"></i>
+                                <i class="sidenav-toggler-line bg-white"></i>
+                                <i class="sidenav-toggler-line bg-white"></i>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown pe-2 d-flex mt-3 align-items-center">
+                        <a href="javascript:;" class="nav-link text-white p-0 " id="dropdownMenuButton"
                             data-bs-toggle="dropdown" aria-expanded="false">
                             <i class="fa fa-bell cursor-pointer text-lg">
                                 @if (auth()->user()->unreadNotifications->count() != 0)
-                                    <p class="text-sm"><span
-                                            class="  me-1 position-absolute top-0 start-100 translate-middle badge rounded-pill bg-gradient-info">{{ auth()->user()->unreadNotifications->count() }}
-                                        </span></p>
+                                    <span
+                                        class=" badge badge-md badge-circle badge-floating badge-warning border-dark">{{ auth()->user()->unreadNotifications->count() }}</span>
                                 @endif
                             </i>
                         </a>
                         {{-- aplicar notificacion de comentarios de las cass  --}}
-                        <ul class="dropdown-menu  dropdown-menu-end  px-2    me-sm-n4"
+                        <ul class="dropdown-menu  dropdown-menu-end  px-2 me-sm-n4"
                             aria-labelledby="dropdownMenuButton">
                             {{-- primera notificacion aqui aplicar un forech y determinar los comentarios de las casas --}}
                             <li class="mb-2">
