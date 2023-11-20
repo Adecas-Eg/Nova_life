@@ -4,8 +4,8 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="apple-touch-icon" sizes="76x76" href="{{ secure_asset('assets/img/apple-icon.png') }}">
-    <link rel="icon" type="image/png" href="{{ secure_asset('img/logo1.png') }}">
+    <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('assets/img/apple-icon.png') }}">
+    <link rel="icon" type="image/png" href="{{ asset('img/logo1.png') }}">
     <title>
         Nova Life
     </title>
@@ -54,14 +54,14 @@
         @endif
     @endauth
 
-    <script src="{{ asset('/assets/js/core/popper.min.js') }}"></script>
-    <script src="{{ asset('/assets/js/core/bootstrap.min.js') }}"></script>
-    <script src="{{ asset('/assets/js/plugins/perfect-scrollbar.min.js') }}"></script>
-    <script src="{{ asset('/assets/js/plugins/jquery.min.js') }}"></script>
+    <script src="{{ secure_asset('/assets/js/core/popper.min.js') }}"></script>
+    <script src="{{ secure_asset('/assets/js/core/bootstrap.min.js') }}"></script>
+    <script src="{{ secure_asset('/assets/js/plugins/perfect-scrollbar.min.js') }}"></script>
+    <script src="{{ secure_asset('/assets/js/plugins/jquery.min.js') }}"></script>
 
-    <script src="{{ asset('/assets/js/plugins/smooth-scrollbar.min.js') }}"></script>
-    <script src="{{ asset('/assets/js/plugins/prims.js') }}"></script>
-    <script src="{{ asset('/assets/js/plugins/docs.min.js') }}"></script>
+    <script src="{{ secure_asset('/assets/js/plugins/smooth-scrollbar.min.js') }}"></script>
+    <script src="{{ secure_asset('/assets/js/plugins/prims.js') }}"></script>
+    <script src="{{ secure_asset('/assets/js/plugins/docs.min.js') }}"></script>
 
 
 
@@ -80,14 +80,14 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
 
     <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
-    <script src="{{ sevure_asset('assets/js/argon-dashboard.js') }}"></script>
-    {{-- <script src="{{ asset('assets/js/plugins/multipart.js') }}"></script> --}}
-    <script src="{{ sevure_asset('/assets/js/plugins/holder.min.js') }}"></script>
-    <script src="{{ asset('/assets/js/plugins/moment.min.js') }}"></script>
+    <script src="{{ secure_asset('assets/js/argon-dashboard.js') }}"></script>
+    {{-- <script src="{{ secure_asset('assets/js/plugins/multipart.js') }}"></script> --}}
+    <script src="{{ secure_asset('/assets/js/plugins/holder.min.js') }}"></script>
+    <script src="{{ secure_asset('/assets/js/plugins/moment.min.js') }}"></script>
 
-    <script src="{{ sevure_asset('/assets/js/plugins/choises.min.js') }}"></script>
-    <script src="{{ sevure_asset('/assets/js/plugins/dropzone.min.js') }}"></script>
-    <script src="{{ sevure_asset('/assets/js/plugins/quill.min.js') }}"></script>
+    <script src="{{ secure_asset('/assets/js/plugins/choises.min.js') }}"></script>
+    <script src="{{ secure_asset('/assets/js/plugins/dropzone.min.js') }}"></script>
+    <script src="{{ secure_asset('/assets/js/plugins/quill.min.js') }}"></script>
 
     @stack('js');
 
