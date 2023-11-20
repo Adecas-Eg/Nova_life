@@ -4,21 +4,21 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('assets/img/apple-icon.png') }}">
-    <link rel="icon" type="image/png" href="{{ asset('img/logo1.png') }}">
+    <link rel="apple-touch-icon" sizes="76x76" href="{{ secure_asset('assets/img/apple-icon.png') }}">
+    <link rel="icon" type="image/png" href="{{ secure_asset('img/logo1.png') }}">
     <title>
         Nova Life
     </title>
 
-    <link href="{{ asset('assets/css/nucleo-icons.css') }}" rel="stylesheet" />
-    <link href="{{ asset('assets/css/nucleo-svg.css') }}" rel="stylesheet" />
+    <link href="{{ secure_asset('assets/css/nucleo-icons.css') }}" rel="stylesheet" />
+    <link href="{{ secure_asset('assets/css/nucleo-svg.css') }}" rel="stylesheet" />
     <script async
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBTj4coD-nVKAVxCWCn-wsnTIDRzMZQk-c&callback=console.debug&libraries=places,marker&v=beta">
     </script>
     <!-- Font Awesome Icons -->
     <script src="https://kit.fontawesome.com/f3f0a010ab.js" crossorigin="anonymous"></script>
     <!-- CSS Files -->
-    <link id="pagestyle" href="{{ asset('assets/css/argon-dashboard.css') }}" rel="stylesheet" />
+    <link id="pagestyle" href="{{ secure_asset('assets/css/argon-dashboard.css') }}" rel="stylesheet" />
 
 </head>
 
@@ -80,14 +80,14 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
 
     <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
-    <script src="{{ asset('assets/js/argon-dashboard.js') }}"></script>
+    <script src="{{ sevure_asset('assets/js/argon-dashboard.js') }}"></script>
     {{-- <script src="{{ asset('assets/js/plugins/multipart.js') }}"></script> --}}
-    <script src="{{ asset('/assets/js/plugins/holder.min.js') }}"></script>
+    <script src="{{ sevure_asset('/assets/js/plugins/holder.min.js') }}"></script>
     <script src="{{ asset('/assets/js/plugins/moment.min.js') }}"></script>
 
-    <script src="{{ asset('/assets/js/plugins/choises.min.js') }}"></script>
-    <script src="{{ asset('/assets/js/plugins/dropzone.min.js') }}"></script>
-    <script src="{{ asset('/assets/js/plugins/quill.min.js') }}"></script>
+    <script src="{{ sevure_asset('/assets/js/plugins/choises.min.js') }}"></script>
+    <script src="{{ sevure_asset('/assets/js/plugins/dropzone.min.js') }}"></script>
+    <script src="{{ sevure_asset('/assets/js/plugins/quill.min.js') }}"></script>
 
     @stack('js');
 
