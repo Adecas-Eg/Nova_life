@@ -43,9 +43,8 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 
 Route::get('/', function () {
-    return redirect('/home');
-});
-
+    return redirect('/casa');
+})->middleware('auth');
 
 
 Route::get('/login-google', function () {
@@ -107,6 +106,7 @@ Route::group(['middleware' => 'guest'], function () {
 Route::get('/dashboard', [HomeController::class, 'dashboard'])->name('dashboard')->middleware('auth', 'can:dashboard');
 
 
+Route::get('/principals', [CasaController::class, 'home'])->name('casa.home');
 
 
 
