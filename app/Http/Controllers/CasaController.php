@@ -84,10 +84,10 @@ class CasaController extends Controller
             $casa->latitud = $geometry->latitud;
             $casa->longitud = $geometry->longitud;
             $casa->save();
-            $casa->addMultipleMediaFromRequest(['imagenes'])
-                ->each(function ($fileAdder) {
-                    $fileAdder->toMediaCollection('casas');
-            });
+            // $casa->addMultipleMediaFromRequest(['imagenes'])
+            //     ->each(function ($fileAdder) {
+            //         $fileAdder->toMediaCollection('casas');
+            // });
             return redirect()->route('casa.administer')->with('info', 'Inmueble creado exitosamente');
         }
         //back se usa para regresar a la pagina anterior
