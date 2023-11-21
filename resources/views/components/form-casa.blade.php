@@ -18,8 +18,10 @@
     <div class="row">
         <div class="col-12 col-lg-8 m-auto">
             <form class="multisteps-form__form mb-8" style="height: 406px;" id="miFormulario"
-                action="{{ route($route, isset($casa) ? $casa : null) }}" method="post" role="form"
-                enctype="multipart/form-data">
+                @if ($method == 'pactch') action="{{ route($route, $casa) }}"
+               @else
+               action="{{ route($route) }}" @endif
+                method="post" role="form" enctype="multipart/form-data">
                 @csrf
                 @method($method)
 
