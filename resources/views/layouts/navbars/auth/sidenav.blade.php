@@ -5,7 +5,7 @@
     <div class="sidenav-header move-on-hover">
         <i class="fas fa-times p-3 cursor-pointer text-secondary opacity-5 position-absolute end-0 top-0 d-none d-xl-none"
             aria-hidden="true" id="iconSidenav"></i>
-        <a class="navbar-brand m-0" href="{{ route('casa.home') }}">
+        <a class="navbar-brand m-0" href="/">
             {{-- //IMAGEN Y LOGO --}}
             <img src="{{ asset('img/logo1.png') }}" class="navbar-brand-img" alt="main_logo">
             <span class="ms-1 font-weight-bold"> NOVA LIFE </span>
@@ -51,6 +51,18 @@
                     </a>
                 </li>
             @endcan
+            @can('admin.casas')
+            <li class="nav-item move-on-hover">
+                <a class="nav-link {{ str_contains(request()->url(), 'casas') == true ? 'active' : '' }}"
+                    href="{{ route('admin.casas') }}">
+                    <div
+                        class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                            <i class="fa-solid fa-building-user text-dark text-gradient text-sm opacity-10"></i>
+                    </div>
+                    <span class="nav-link-text ms-1">Administrar Usario</span>
+                </a>
+            </li>
+        @endcan
 
             {{-- Inmuebles --}}
 

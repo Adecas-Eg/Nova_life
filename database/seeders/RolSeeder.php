@@ -27,7 +27,7 @@ class RolSeeder extends Seeder
         Permission::create(['name' => 'users.store'])->syncRoles($role1);
         Permission::create(['name' => 'users.edit'])->syncRoles($role1);
         Permission::create(['name' => 'users.update'])->syncRoles($role1);
-        Permission::create(['name' => 'admin.cas as'])->syncRoles($role1);
+        Permission::create(['name' => 'admin.casas'])->syncRoles($role1);
         Permission::create(['name' => 'user.change_status'])->syncRoles($role1);
 
         ///Permisos de casasas

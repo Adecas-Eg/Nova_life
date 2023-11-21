@@ -9,19 +9,13 @@ use Spatie\Permission\Models\Role;
 
 class UserController extends Controller
 {
-
-
     public function __construct()
     {
         $this->middleware('can:users.index')->only('index');
         $this->middleware('can:users.edit')->only('edit');
         $this->middleware('can:users.update')->only('update');
         $this->middleware('can:casa.changue_status')->only('changue_status');
-        $this->middleware('can:casa.admin.casas')->only('administer_casa');
-
-
-
-
+        $this->middleware('can:admin.casas')->only('administer_casa');
     }
     public function index(Request $request)
     {
@@ -52,8 +46,6 @@ class UserController extends Controller
 
     public function change_status(User $user)
     {
-
-
         if ($user->status == null) {
             $user->status = 1;
             $user->save();

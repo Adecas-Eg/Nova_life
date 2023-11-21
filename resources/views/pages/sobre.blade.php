@@ -1,212 +1,49 @@
 @extends('layouts.app', ['class' => 'g-sidenav-show bg-gray-100'])
 
-@push('js')
-    <script src="{{ asset('assets/js/plugins/multipart.js') }}"></script>
-@endpush
-
-
 @section('content')
+    <section class="pt-3 pt-md-5 pb-md-5 pt-lg-8 bg-gray-200">
+        <div class="container">
+            <div class="row">
 
-    <body>
-        <div class="image-container set-full-height"
-            style="background-image: url('http://demos.creative-tim.com/material-bootstrap-wizard/assets/img/wizard-book.jpg')">
-            <!--   Creative Tim Branding   -->
-            <a href="http://creative-tim.com" target="_blank">
-                <div class="logo-container">
-                    <div class="logo">
-                        <img src="http://demos.creative-tim.com/material-bootstrap-wizard/assets/img/new_logo.png">
-                    </div>
-                    <div class="brand">
-                        Creative Tim
-                    </div>
-                </div>
-            </a>
-
-            <!--  Made With Material Kit  -->
-            <a href="http://demos.creative-tim.com/material-kit/index.html?ref=material-bootstrap-wizard" class="made-with-mk"
-                target="_blank">
-                <div class="brand">MK</div>
-                <div class="made-with">Made with <strong>Material Kit</strong></div>
-            </a>
-
-            <!--   Big container   -->
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-8 col-sm-offset-2">
-                        <!-- Wizard container -->
-                        <div class="wizard-container">
-                            <div class="card wizard-card" data-color="red" id="wizard">
-                                <form action="" method="">
-                                    <!--        You can switch " data-color="blue" "  with one of the next bright colors: "green", "orange", "red", "purple"             -->
-
-                                    <div class="wizard-header">
-                                        <h3 class="wizard-title">
-                                            Book a Room
-                                        </h3>
-                                        <h5>This information will let us know more about you.</h5>
-                                    </div>
-                                    <div class="wizard-navigation">
-                                        <ul>
-                                            <li><a href="#details" data-toggle="tab">Account</a></li>
-                                            <li><a href="#captain" data-toggle="tab">Room Type</a></li>
-                                            <li><a href="#description" data-toggle="tab">Extra Details</a></li>
-                                        </ul>
-                                    </div>
-
-                                    <div class="tab-content">
-                                        <div class="tab-pane" id="details">
-                                            <div class="row">
-                                                <div class="col-sm-12">
-                                                    <h4 class="info-text"> Let's start with the basic details.</h4>
-                                                </div>
-                                                <div class="col-sm-6">
-                                                    <div class="input-group">
-                                                        <span class="input-group-addon">
-                                                            <i class="material-icons">email</i>
-                                                        </span>
-                                                        <div class="form-group label-floating">
-                                                            <label class="control-label">Your Email</label>
-                                                            <input name="name" type="text" class="form-control">
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="input-group">
-                                                        <span class="input-group-addon">
-                                                            <i class="material-icons">lock_outline</i>
-                                                        </span>
-                                                        <div class="form-group label-floating">
-                                                            <label class="control-label">Your Password</label>
-                                                            <input name="name2" type="password" class="form-control">
-                                                        </div>
-                                                    </div>
-
-                                                </div>
-                                                <div class="col-sm-6">
-                                                    <div class="form-group label-floating">
-                                                        <label class="control-label">Country</label>
-                                                        <select class="form-control">
-                                                            <option disabled="" selected=""></option>
-                                                            <option value="Afghanistan"> Afghanistan </option>
-                                                            <option value="Albania"> Albania </option>
-                                                            <option value="Algeria"> Algeria </option>
-                                                            <option value="American Samoa"> American Samoa </option>
-                                                            <option value="Andorra"> Andorra </option>
-                                                            <option value="Angola"> Angola </option>
-                                                            <option value="Anguilla"> Anguilla </option>
-                                                            <option value="Antarctica"> Antarctica </option>
-                                                            <option value="...">...</option>
-                                                        </select>
-                                                    </div>
-                                                    <div class="form-group label-floating">
-                                                        <label class="control-label">Daily Budget</label>
-                                                        <select class="form-control">
-                                                            <option disabled="" selected=""></option>
-                                                            <option value="Afghanistan">
-                                                                < $100 </option>
-                                                            <option value="Albania"> $100 - $499 </option>
-                                                            <option value="Algeria"> $499 - $999 </option>
-                                                            <option value="American Samoa"> $999+ </option>
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="tab-pane" id="captain">
-                                            <h4 class="info-text">What type of room would you want? </h4>
-                                            <div class="row">
-                                                <div class="col-sm-10 col-sm-offset-1">
-                                                    <div class="col-sm-4">
-                                                        <div class="choice" data-toggle="wizard-radio" rel="tooltip"
-                                                            title="This is good if you travel alone.">
-                                                            <input type="radio" name="job" value="Design">
-                                                            <div class="icon">
-                                                                <i class="material-icons">weekend</i>
-                                                            </div>
-                                                            <h6>Single</h6>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-sm-4">
-                                                        <div class="choice" data-toggle="wizard-radio" rel="tooltip"
-                                                            title="Select this room if you're traveling with your family.">
-                                                            <input type="radio" name="job" value="Code">
-                                                            <div class="icon">
-                                                                <i class="material-icons">home</i>
-                                                            </div>
-                                                            <h6>Family</h6>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-sm-4">
-                                                        <div class="choice" data-toggle="wizard-radio" rel="tooltip"
-                                                            title="Select this option if you are coming with your team.">
-                                                            <input type="radio" name="job" value="Code">
-                                                            <div class="icon">
-                                                                <i class="material-icons">business</i>
-                                                            </div>
-                                                            <h6>Business</h6>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="tab-pane" id="description">
-                                            <div class="row">
-                                                <h4 class="info-text"> Drop us a small description.</h4>
-                                                <div class="col-sm-6 col-sm-offset-1">
-                                                    <div class="form-group">
-                                                        <label>Room description</label>
-                                                        <textarea class="form-control" placeholder="" rows="6"></textarea>
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-4">
-                                                    <div class="form-group">
-                                                        <label class="control-label">Example</label>
-                                                        <p class="description">"The room really nice name is recognized as
-                                                            being a really awesome room. We use it every sunday when we go
-                                                            fishing and we catch a lot. It has some kind of magic shield
-                                                            around it."</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="wizard-footer">
-                                        <div class="pull-right">
-                                            <input type='button' class='btn btn-next btn-fill btn-danger btn-wd'
-                                                name='next' value='Next' />
-                                            <input type='button' class='btn btn-finish btn-fill btn-danger btn-wd'
-                                                name='finish' value='Finish' />
-                                        </div>
-                                        <div class="pull-left">
-                                            <input type='button' class='btn btn-previous btn-fill btn-default btn-wd'
-                                                name='previous' value='Previous' />
-
-                                            <div class="footer-checkbox">
-                                                <div class="col-sm-12">
-                                                    <div class="checkbox">
-                                                        <label>
-                                                            <input type="checkbox" name="optionsCheckboxes">
-                                                        </label>
-                                                        Subscribe to our newsletter
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="clearfix"></div>
-                                    </div>
-                                </form>
+                <div class="col-lg-9">
+                    <div class="card shadow-lg mb-5">
+                        <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2 bg-transparent">
+                            <div class="bg-gradient-dark shadow-primary border-radius-lg p-3">
+                                <h3 class="text-white mb-0">Sobre nosotros</h3>
                             </div>
-                        </div> <!-- wizard container -->
-                    </div>
-                </div> <!-- row -->
-            </div> <!--  big container -->
+                        </div>
+                        <div class="card-body p-5">
 
-            <div class="footer">
-                <div class="container text-center">
-                    Made with <i class="fa fa-heart heart"></i> by <a href="http://www.creative-tim.com"
-                        target="_blank">Creative Tim</a>. Free download <a
-                        href="http://www.creative-tim.com/product/material-bootstrap-wizard" target="_blank">here.</a>
+                            "Nosotros: Somos su Compañero en la Búsqueda del Hogar Perfecto"
+
+                            En Nova lie, entendemos que tu hogar es más que un lugar; es el escenario de tus
+                            sueños, experiencias y momentos preciosos. Somos tu aliado apasionado en la búsqueda del hogar
+                            perfecto, ya sea para comprar o rentar.
+
+                            Nuestro equipo está formado por expertos en bienes raíces comprometidos con hacer que tu proceso
+                            de búsqueda sea fluido y satisfactorio. Nos dedicamos a entender tus necesidades, aspiraciones y
+                            preferencias, para ofrecerte opciones que no solo cumplen con tus expectativas, sino que las
+                            superan.
+
+                            Con un enfoque personalizado y tecnología de vanguardia, te proporcionamos acceso a una amplia
+                            gama de propiedades a través de recorridos virtuales, imágenes detalladas y descripciones
+                            precisas. Simplificamos la búsqueda para que puedas explorar desde la comodidad de tu hogar,
+                            ahorrando tiempo y esfuerzo.
+
+                            En Nova lie, no solo ayudamos a encontrar casas y rentas, sino que también te
+                            guiamos a través de cada paso del proceso, asegurándonos de que cada transacción sea tan sin
+                            complicaciones como sea posible. Tu satisfacción y comodidad son nuestra prioridad.
+
+                            Confía en nosotros para ser tu compañero de confianza en la búsqueda de tu próximo hogar.
+                            Estamos aquí para convertir tus sueños inmobiliarios en realidad.
+
+
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </body>
+    </section>
+
+    @include('layouts.footers.auth.footer')
 @endsection

@@ -1,8 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-
-@include('layouts.navbars.guest.navbar')
+    @include('layouts.navbars.guest.navbar')
     <main class="main-content  mt-0">
 
 
@@ -17,10 +16,12 @@
                         <div
                             class="col-lg-6 col-md-7 d-flex justify-content-center text-md-start text-center flex-column mt-sm-0 mt-7">
                             <h1 class="text-white">Bienvenidos a nova life </h1>
-                            <p class="lead pe-md-5 me-md-5 text-white opacity-8">Aqui podras encontrar la casa de tus sueños</p>
+                            <p class="lead pe-md-5 me-md-5 text-white opacity-8">Aqui podras encontrar la casa de tus sueños
+                            </p>
                             <div class="buttons">
-                               <a class="btn bg-gradient-primary mt-4" href="{{route('login')}}">Empieza con nosotrosw</a>
-                                <button type="button" class="btn text-white shadow-none mt-4">Read more</button>
+                                <a class="btn bg-gradient-primary mt-4" href="{{ route('login') }}">Empieza con
+                                    nosotrosw</a>
+                                <a href="{{ route('sobre') }}" class="btn text-white shadow-none mt-4">Saber mas</a>
                             </div>
                         </div>
                     </div>
@@ -29,7 +30,7 @@
         </header>
         <div class="card card-body blur shadow-blur mx-3 mx-md-4 mt-n6 mb-4">
 
-            <section class="py-md-7">
+            {{-- <section class="py-md-7">
                 <div class="container">
                     <div class="row justify-content-start">
                         <div class="col-md-4 ms-md-auto me-md-4">
@@ -74,11 +75,11 @@
                         </div>
                     </div>
                 </div>
-            </section>
+            </section> --}}
 
 
             <section class="py-4 position-relative">
-                <div class="container-fluid">
+                <div class="container-fluid mt-4">
                     <div class="row">
                         <div class="col-10 mx-auto bg-gradient-dark border-radius-lg">
                             <div class="row py-5">
@@ -87,28 +88,22 @@
                                         src="https://images.unsplash.com/photo-1521668576204-57ae3afee860?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=934&amp;q=80"
                                         loading="lazy" alt="card image">
                                 </div>
-                                <div class="col-xl-4 col-md-5 z-index-2 position-relative px-md-3 px-5 my-md-auto mt-4">
-                                    <i class="material-icons text-white text-5xl">format_quote</i>
-                                    <p class="text-lg text-white">
-                                        Decisions: If you can’t decide, the answer is no.
-                                        If two equally difficult paths, choose the one more
-                                        painful in the short term (pain avoidance is creating
-                                        an illusion of equality). Choose the path that leaves
-                                        you more equanimous in the long term.
+                                <div class="col-xl-4 col-md-5 z-index-2 position-relative px-md-3 px-5 text-center mt-4">
+                                    <i class="material-icons text-white text-5xl">Nova Life</i>
+                                    <p class="text-lg text-white ">
+                                        Bienvenidos a mi hogar, donde los sueños se encuentran con la realidad y cada rincón
+                                        cuenta
+                                        una historia de inspiración! Esta no es solo una casa; es un santuario de
+                                        posibilidades, un
+                                        refugio donde el confort se fusiona con la elegancia. Cada detalle ha sido
+                                        cuidadosamente
+                                        seleccionado para crear un ambiente acogedor y estimulante.
                                     </p>
-                                    <p class="text-white font-weight-bold text-sm">Michael - <span
-                                            class="text-xs font-weight-normal">Writter</span></p>
-                                    <hr class="vertical start-100 ms-n5 d-xl-block d-none">
+                                    <p class="text-white font-weight-bold text-sm">Nova life</p>
+
                                 </div>
                                 <div class="col-1"></div>
-                                <div class="col-xl-2 col-12 px-xl-0 px-5 my-xl-auto">
-                                    <h3 class="text-white mt-xl-0 mt-5">1,679,700 +</h3>
-                                    <p class="text-sm text-white opacity-8">Developers and Companies around the world using
-                                        our products.</p>
-                                    <a href="javascript:;" class="text-white icon-move-right text-sm">See all products
-                                        <i class="fas fa-arrow-right text-xs ms-1" aria-hidden="true"></i>
-                                    </a>
-                                </div>
+
                             </div>
                         </div>
                     </div>
@@ -166,22 +161,18 @@
 
             <section class="features-3 py-4">
                 <div class="container">
-                    {{-- <div class="row text-center justify-content-center">
+                    <div class="row text-center justify-content-center">
                         <div class="col-lg-6">
-                            <span class="badge rounded-pill badge-primary mb-2">Co-working</span>
-                            <h2>Explore our places in London </h2>
-                            <p>
-                                If you can’t decide, the answer is no. If two equally difficult paths,
-                                choose the one more painful in the short term (pain avoidance
-                                is creating an illusion of equality).
-                            </p>
+                            <span class="badge rounded-pill badge-primary mb-2">Trabajemos justo</span>
+                            <h2>Explora con nosotros las mejores ofertas </h2>
+
                         </div>
-                    </div> --}}
+                    </div>
                     <div class="row mt-5">
                         <div class="col-lg-4 mb-lg-0 mb-4">
 
                             <div class="card">
-                                <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+                                <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2 move-on-hover">
                                     <a class="d-block blur-shadow-image">
                                         <img src="https://images.unsplash.com/photo-1540553016722-983e48a2cd10?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=1950&amp;q=80"
                                             alt="img-blur-shadow" class="img-fluid shadow border-radius-lg" loading="lazy">
@@ -191,122 +182,68 @@
                                     </div>
                                 </div>
                                 <div class="card-body">
-                                    <h5 class="font-weight-normal">Campus 6</h5>
-                                    <p>Website visitors today demand a frictionless user expericence. Applies to mobile
-                                        applications too.</p>
-                                    <button class="btn btn-outline-dark btn-sm mb-0" type="button" name="button">Find
-                                        more</button>
+                                    <h5 class="font-weight-normal">Oportunidades Únicas</h5>
+                                    <p>Descubre propiedades exclusivas y oportunidades de inversión que capturan la esencia
+                                        del lujo y la comodidad.
+                                    </p>
+                                    <a class="btn btn-outline-dark btn-sm mb-0" href="{{ route('casa.index') }}"
+                                        name="button">Saber mas</a>
                                 </div>
                             </div>
 
 
-                            <div class="card mt-5">
-                                <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
-                                    <a class="d-block blur-shadow-image">
-                                        <img src="https://images.unsplash.com/photo-1589884629108-3193400c7cc9?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=1950&amp;q=80"
-                                            alt="img-blur-shadow" class="img-fluid shadow border-radius-lg"
-                                            loading="lazy">
-                                    </a>
-                                    <div class="colored-shadow"
-                                        style="background-image: url(&quot;https://images.unsplash.com/photo-1589884629108-3193400c7cc9?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=1950&amp;q=80&quot;);">
-                                    </div>
-                                </div>
-                                <div class="card-body">
-                                    <h5 class="font-weight-normal">Virtual Office</h5>
-                                    <p>If you’re more passionate about founding a business than the business itself, you can
-                                        fall into.</p>
-                                    <button class="btn btn-outline-dark btn-sm mb-0" type="button" name="button">More
-                                        info</button>
-                                </div>
-                            </div>
+
 
                         </div>
                         <div class="col-lg-4 mb-lg-0 mb-4">
 
                             <div class="card">
-                                <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+                                <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2 move-on-hover">
                                     <a class="d-block blur-shadow-image">
                                         <img src="https://images.unsplash.com/photo-1498677231914-50deb6ba4217?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=1950&amp;q=80"
-                                            alt="img-blur-shadow" class="img-fluid shadow border-radius-lg"
-                                            loading="lazy">
+                                            alt="img-blur-shadow" class="img-fluid shadow border-radius-lg" loading="lazy">
                                     </a>
                                     <div class="colored-shadow"
                                         style="background-image: url(&quot;https://images.unsplash.com/photo-1498677231914-50deb6ba4217?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=1950&amp;q=80&quot;);">
                                     </div>
                                 </div>
                                 <div class="card-body">
-                                    <h5 class="font-weight-normal">Cozy Spots</h5>
-                                    <p>If you’re more passionate about founding a business than the business itself
-                                        technology.</p>
-                                    <button class="btn btn-outline-dark btn-sm mb-0" type="button" name="button">More
-                                        info</button>
+                                    <h5 class="font-weight-normal">Tipos</h5>
+                                    <p> Desde residencias contemporáneas hasta encantadores hogares
+                                        históricos, cada propiedad es una puerta abierta a un estilo de vida excepcional.</p>
+                                    <a class="btn btn-outline-dark btn-sm mb-0" href="{{ route('casa.index') }}"
+                                        name="button">Saber mas</a>
                                 </div>
                             </div>
 
 
-                            <div class="card mt-5">
-                                <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
-                                    <a class="d-block blur-shadow-image">
-                                        <img src="https://images.unsplash.com/photo-1527192491265-7e15c55b1ed2?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=1950&amp;q=80"
-                                            alt="img-blur-shadow" class="img-fluid shadow border-radius-lg"
-                                            loading="lazy">
-                                    </a>
-                                    <div class="colored-shadow"
-                                        style="background-image: url(&quot;https://images.unsplash.com/photo-1527192491265-7e15c55b1ed2?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=1950&amp;q=80&quot;);">
-                                    </div>
-                                </div>
-                                <div class="card-body">
-                                    <h5 class="font-weight-normal">Co-working Spaces</h5>
-                                    <p>Smart money is just dumb money that’s been through a crash. Business than the
-                                        business itself.</p>
-                                    <button class="btn btn-outline-dark btn-sm mb-0" type="button" name="button">Find
-                                        more</button>
-                                </div>
-                            </div>
+
 
                         </div>
                         <div class="col-lg-4">
 
                             <div class="card">
-                                <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+                                <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2 move-on-hover">
                                     <a class="d-block blur-shadow-image">
                                         <img src="https://images.unsplash.com/photo-1587578932405-7c740a762f7f?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=1950&amp;q=80"
-                                            alt="img-blur-shadow" class="img-fluid shadow border-radius-lg"
-                                            loading="lazy">
+                                            alt="img-blur-shadow" class="img-fluid shadow border-radius-lg" loading="lazy">
                                     </a>
                                     <div class="colored-shadow"
                                         style="background-image: url(&quot;https://images.unsplash.com/photo-1587578932405-7c740a762f7f?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=1950&amp;q=80&quot;);">
                                     </div>
                                 </div>
                                 <div class="card-body">
-                                    <h5 class="font-weight-normal">Home Office</h5>
-                                    <p>Website visitors today demand a frictionless user expericence — especially when using
-                                        search.</p>
-                                    <button class="btn btn-outline-dark btn-sm mb-0" type="button" name="button">Find
-                                        more</button>
+                                    <h5 class="font-weight-normal">Desde la comodidad de tu casa</h5>
+                                    <p>
+                                    "Descubre Tu Hogar Ideal con Recorridos 360: Explora desde Casa"
+                                    Explora propiedades exclusivas, cocinas de ensueño y espacios exteriores perfectos con recorridos virtuales 360.</p>
+                                    <a class="btn btn-outline-dark btn-sm mb-0" href="{{ route('casa.index') }}"
+                                        name="button">Saber mas</a>
                                 </div>
                             </div>
 
 
-                            <div class="card mt-5">
-                                <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
-                                    <a class="d-block blur-shadow-image">
-                                        <img src="https://images.unsplash.com/photo-1461988625982-7e46a099bf4f?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=1950&amp;q=80"
-                                            alt="img-blur-shadow" class="img-fluid shadow border-radius-lg"
-                                            loading="lazy">
-                                    </a>
-                                    <div class="colored-shadow"
-                                        style="background-image: url(&quot;https://images.unsplash.com/photo-1461988625982-7e46a099bf4f?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=1950&amp;q=80&quot;);">
-                                    </div>
-                                </div>
-                                <div class="card-body">
-                                    <h5 class="font-weight-normal">Private Space</h5>
-                                    <p>Technology is not only the thing that moves the human race forward, but it’s the only
-                                        thing that has.</p>
-                                    <button class="btn btn-outline-dark btn-sm mb-0" type="button" name="button">More
-                                        info</button>
-                                </div>
-                            </div>
+
 
                         </div>
                     </div>

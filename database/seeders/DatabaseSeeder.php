@@ -21,6 +21,8 @@ class DatabaseSeeder extends Seeder
 
         $this->call(RolSeeder::class);
         $this->call(UserSeeder::class);
+        $this->call(CasaSeeder::class);
+
         if (Category::count()==0){
             $this->call(CategorySeeders::class);
         }

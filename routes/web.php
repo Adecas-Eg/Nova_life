@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CasaController;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PageController;
@@ -31,21 +32,9 @@ use Laravel\Socialite\Facades\Socialite;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Auth::routes();
 
-
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-
-
-Route::get('/', function () {
-    return redirect('/casa');
-})->middleware('auth');
-
 
 Route::get('/login-google', function () {
     return Socialite::driver('google')->redirect();
@@ -87,9 +76,10 @@ Route::get('/google-callback', function () {
 
 });
 
-
-
 Route::group(['middleware' => 'guest'], function () {
+    Route::get('/', function () {
+        return view('casas.home_guest');
+    });
     Route::get('/register', [RegisterController::class, 'create'])->name('register');
     Route::post('/register', [RegisterController::class, 'store'])->name('register.perform');
     Route::get('/login', [LoginController::class, 'show'])->name('login');
@@ -106,10 +96,6 @@ Route::group(['middleware' => 'guest'], function () {
 Route::get('/dashboard', [HomeController::class, 'dashboard'])->name('dashboard')->middleware('auth', 'can:dashboard');
 
 
-Route::get('/principals', [CasaController::class, 'home'])->name('casa.home');
-
-
-
 Route::prefix('comment')->middleware('auth')->group(function () {
     Route::get('/', [CommentController::class, 'index'])->name('comment.index');
     Route::post('/{id}', [CommentController::class, 'store'])->name('comment.store');
@@ -117,10 +103,9 @@ Route::prefix('comment')->middleware('auth')->group(function () {
     Route::delete('/{comment}', [CommentController::class, 'destroy'])->name('comment.destroy');
 });
 
-
 Route::prefix('casa')->controller(CasaController::class)->middleware('auth')->group(function () {
     Route::get('/', 'index')->name('casa.index');
-    Route::get('/filter', 'index')->name('casa.filter');
+    Route::post('/filter', 'filter')->name('casa.filter');
     Route::get('/create', 'create')->name('casa.create');
     Route::post('/', 'store')->name('casa.store');
     Route::get('/{casa}/edit', 'show')->name('casa.show');

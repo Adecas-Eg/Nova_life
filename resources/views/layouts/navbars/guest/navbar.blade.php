@@ -7,7 +7,7 @@
                 <div class="container-fluid">
                     {{-- titulo de la pagina --}}
                     <img src="{{ asset('img/logo1.png') }}" alt="main_logo" height="1%" width="3%">
-                    <a class="navbar-brand font-weight-bolder ms-lg-0 ms-3 " href="{{ route('home') }}">
+                    <a class="navbar-brand font-weight-bolder ms-lg-0 ms-3 " href="/">
                         Nova Life
 
                     </a>

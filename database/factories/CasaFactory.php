@@ -29,13 +29,14 @@ class CasaFactory extends Factory
             'parqueaderos' => fake()->randomElement(["1", "2", "3", "4", "5",]),
             'pisos' => fake()->randomElement(["1", "2", "3", "4", "5",]),
             'area' => fake()->randomElement(["1", "2", "3", "4", "5",]),
+            'antiguedad' => fake()->randomElement(["1", "2", "3", "4", "5",]),
+
             'url_3d' => fake()->text(),
-            'user_id' => fake()->numberBetween(1, 50),
+            'user_id' => fake()->unique->numberBetween(1, 50),
             'precio' => fake()->randomDigit(),
             'status' => fake()->randomElement([1, 2]),
-            'casas' =>fake()->imageUrl(),
-            
-            
+
+
 
         ];
     }

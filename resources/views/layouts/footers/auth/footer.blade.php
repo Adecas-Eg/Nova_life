@@ -3,7 +3,7 @@
         <div class=" row">
             <div class="col-md-3 mb-4 ms-auto">
                 <div>
-                    <a href="{{route('casa.home')}}">
+                    <a href="/">
                         <img src="{{ asset('img/logo1.png') }}" alt="main_logo" height="30%" width="15%">
                     </a>
                     <h6 class="font-weight-bolder mb-4">Nova Life</h6>

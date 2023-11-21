@@ -55,7 +55,7 @@ class StorageLinkCommand extends Command
             } else {
                 $this->laravel->make('files')->link($target, $link);
             }
-
+            
             $this->info("The [$link] link has been connected to [$target].");
         }
 

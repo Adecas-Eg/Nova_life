@@ -29,10 +29,11 @@
                 <div class="row">
                     <div class="col-lg-10 text-center mx-auto mt-5 pt-3">
                         <div class="ms-md-auto pe-md-3 d-flex align-items-center">
-                            <form class="form">
+                            <form class="form" action="{{route('casa.filter')}}" method="post">
+                                @csrf
                                 <div class="input-group">
                                     <input type="text" name="buscar" class="form-control border border-secondary"
-                                        placeholder="Ubicacion" value="{{ $buscar }}">
+                                        placeholder="Ubicacion" value="{{ old('buscar', isset($buscar) ? $buscar : null) }}">
 
                                     <button type="button" class="form-control border border-primary dropdown-toggle"
                                         data-bs-toggle="dropdown" aria-expanded="false">

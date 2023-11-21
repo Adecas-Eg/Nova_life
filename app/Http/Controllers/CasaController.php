@@ -24,8 +24,6 @@ class CasaController extends Controller
         $this->middleware('can:casa.update')->only('update');
         $this->middleware('can:casa.administer')->only('administer');
         $this->middleware('can:casa.change_status')->only('casa.change_status');
-
-
     }
 
 
@@ -33,7 +31,6 @@ class CasaController extends Controller
 
     public function home()
     {
-
         if (Auth()->user() == null) {
             return view('casas.home_guest');
         } else {
@@ -44,36 +41,37 @@ class CasaController extends Controller
 
     public function index(Request $request)
     {
+
+        $casas = Casa::with(['media'])
+            ->where('status', '=', '1')
+            ->orderBy('id')
+            ->paginate(4);
+        return view('casas.index', compact('casas'));
+    }
+    public function filter(Request $request)
+    {
         $buscar = $request->buscar;
-        //buscar en array
-        // return $request;
         $tipo_inmueble[] = $request->transaccion;
         $casas = Casa::with(['media'])
             ->whereRaw("LOWER(ciudad) LIKE ?", ['%' . strtolower($buscar) . '%'])
             ->where('status', '=', '1')
-            ->where('tipo_inmueble', $tipo_inmueble )
+            ->where('tipo_inmueble', $tipo_inmueble)
             ->orderBy('id')
             ->paginate(4);
-        // return $resultados;
-        return view('casas.index', compact('casas', 'buscar'));
+        return view('casas.index', compact('casas', 'buscar', 'tipo_inmueble'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
+
     public function create()
     {
         return view('casas.create');
     }
 
-
-
     public function store(StoreCasa $request)
     {
         $validate = $request->validate([
-            'imagenes' => 'required'
+            'imagenes' => 'required',
         ]);
-
         $geometry = (Object) json_decode($request->geometry);
         if ($validate == true) {
             $casa = Casa::create($request->validated());
@@ -86,7 +84,7 @@ class CasaController extends Controller
             $casa->addMultipleMediaFromRequest(['imagenes'])
                 ->each(function ($fileAdder) {
                     $fileAdder->toMediaCollection('casas');
-            });
+                });
             return redirect()->route('casa.administer')->with('info', 'Inmueble creado exitosamente');
         }
         //back se usa para regresar a la pagina anterior
@@ -102,7 +100,6 @@ class CasaController extends Controller
 
         }
         return view('casas.show', compact('casa'));
-
     }
 
     public function edit(Casa $casa)
@@ -110,8 +107,6 @@ class CasaController extends Controller
 
         return view('casas.edit', compact('casa'));
     }
-
-
     public function update(StoreCasa $request, Casa $casa)
     {
         $casa->update($request->validated());
@@ -129,7 +124,6 @@ class CasaController extends Controller
 
     public function administer()
     {
-
         $user = User::find(auth()->user()->id);
         $casas1 = $user->casas->sortByDesc('id');
         foreach ($casas1 as $casa) {
@@ -156,12 +150,12 @@ class CasaController extends Controller
     }
 
 
-    public function category(Request $request)
-    {
-        $tags = [];
-        if ($search = $request->name) {
-            $tags = Category::where('tittle' . 'LIKE', "%$search%")->get();
-        }
-        return response()->json($tags);
-    }
+    // public function category(Request $request)
+    // {
+    //     $tags = [];
+    //     if ($search = $request->name) {
+    //         $tags = Category::where('tittle' . 'LIKE', "%$search%")->get();
+    //     }
+    //     return response()->json($tags);
+    // }
 }
