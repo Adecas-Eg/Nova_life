@@ -20,9 +20,9 @@
 
 @push('js')
     {{-- aitpcp,´letar --}}
-    <script src="{{ asset('/assets/js/autocomplete.js') }}"></script>
+    <script src="{{ secure_asset('/assets/js/autocomplete.js') }}"></script>
     {{-- scrrip de de dropzone --}}
-    <script src="{{ asset('/assets/js/plugins/wizzard.js') }}"></script>
+    <script src="{{ secure_asset('/assets/js/plugins/wizzard.js') }}"></script>
 
     <script type="text/javascript">
         Dropzone.autoDiscover = false;

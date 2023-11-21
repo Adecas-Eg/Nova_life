@@ -26,7 +26,7 @@
                             <h3 class="font-weight-bolder">Bienvenido de nuevo</h3>
                             <p class="mb-0">Ingresa tus datos para iniciar session</p>
                             <div class="text-center mt-2">
-                                <a href="/login-google"
+                                <a href="{{ route('redirect-google') }}"
                                     class="btn  justify-content-center align-content-center btn-lg bg-gradient-dark  btn-icon-only rounded-circle">
                                     <span class="btn-inner--icon"><i class="fab fa-google"></i></span>
                                 </a>

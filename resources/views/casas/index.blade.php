@@ -1,7 +1,7 @@
 @extends('layouts.app', ['class' => 'g-sidenav-show bg-gray-100'])
 
 @push('js')
-    <script type="module" src="{{ asset('/assets/js/script.js') }}"></script>
+    <script type="module" src="{{ secure_asset('/assets/js/script.js') }}"></script>
 @endpush
 
 <style>
@@ -191,5 +191,3 @@
 
     </div>
 @endsection
-@push('js')
-@endpush
