@@ -49,7 +49,7 @@ Route::get('/', function () {
 
 Route::get('/login-google', function () {
     return Socialite::driver('google')->redirect();
-})->name('redireck-google');
+})->name('redirect-google');
 
 Route::get('/google-callback', function () {
     $user = Socialite::driver('google')->user();
