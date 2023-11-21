@@ -51,7 +51,7 @@ class CasaController extends Controller
         $casas = Casa::with(['media'])
             ->whereRaw("LOWER(ciudad) LIKE ?", ['%' . strtolower($buscar) . '%'])
             ->where('status', '=', '1')
-            ->where('tipo_inmueble', $tipo_inmueble )
+            // ->where('tipo_inmueble', $tipo_inmueble )
             ->orderBy('id')
             ->paginate(4);
         // return $resultados;
@@ -72,7 +72,6 @@ class CasaController extends Controller
     {
         $validate = $request->validate([
             'imagenes' => 'required',
-            'geometry' => 'required'
 
         ]);
 
