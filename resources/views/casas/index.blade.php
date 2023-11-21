@@ -27,7 +27,7 @@
         <div class="row">
             <div class="col-8">
                 <div class="row">
-                    <div class="col-lg-10 text-center mx-auto mt-5 pt-3">
+                    <div class="col-12 text-center mx-auto mt-5 pt-3">
                         <div class="ms-md-auto pe-md-3 d-flex align-items-center">
                             <form class="form">
                                 <div class="input-group">
@@ -125,10 +125,10 @@
                                         Inmueble
                                     </button>
 
-                                    <ul class="dropdown-menu dropdown-menu-dark">
+                                    <ul class="dropdown-menu dropdown-menu-dark bg-white">
                                         <div class="form-check  ">
                                             <input class="form-check-input input-group-outline" type="checkbox"
-                                                value="" id="flexCheckDefault">
+                                                value="tipo_inmueble[]" id="flexCheckDefault">
                                             <i class="fa fa-money" aria-hidden="true"></i>
                                             <label class="form-check-label text-white" for="flexCheckDefault">
                                                 Venta
@@ -136,7 +136,7 @@
                                         </div>
                                         <div class="form-check ">
                                             <input class="form-check-input input-group-outline" type="checkbox"
-                                                value="" id="flexCheckDefault">
+                                                value="tipo_inmueble[]" id="flexCheckDefault">
                                             <i class="fa fa-handshake-o" aria-hidden="true"></i>
                                             <label class="form-check-label text-white" for="flexCheckDefault">
                                                 Arriendo

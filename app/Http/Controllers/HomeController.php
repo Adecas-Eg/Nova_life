@@ -26,7 +26,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return redirect()->route('casa.index');
+        return redirect()->route('casa.home');
     }
 
     public function dashboard()

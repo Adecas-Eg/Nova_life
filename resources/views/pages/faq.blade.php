@@ -10,18 +10,18 @@
                         <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2 bg-transparent">
                             <div class="bg-gradient-dark shadow-info border-radius-lg p-4">
                                 <h3 class="text-white mb-0">FAQ</h3>
-                                <p class="text-white opacity-8 mb-0">Last modified: Aug 30 2021</p>
+                                <p class="text-white opacity-8 mb-0">Ultima modificacion: Aug 30 2023</p>
                             </div>
                         </div>
                         <div class="card-body p-sm-5 pt-0">
-                            <h5 class="my-4">Basics</h5>
+                            <h5 class="my-4">Basicas</h5>
                             <div class="accordion" id="accordionFaq">
                                 <div class="accordion-item mb-3">
                                     <h6 class="accordion-header" id="headingOne">
                                         <button class="accordion-button border-bottom font-weight-bold text-start"
                                             type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
                                             aria-expanded="true" aria-controls="collapseOne">
-                                            How do I order?
+                                            Como registrase?
                                             <i class="collapse-close fa fa-plus text-xs pt-1 position-absolute end-0"
                                                 aria-hidden="true"></i>
                                             <i class="collapse-open fa fa-minus text-xs pt-1 position-absolute end-0"

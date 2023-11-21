@@ -71,7 +71,9 @@ class CasaController extends Controller
     public function store(StoreCasa $request)
     {
         $validate = $request->validate([
-            'imagenes' => 'required'
+            'imagenes' => 'required',
+            'geometry' => 'required'
+
         ]);
 
         $geometry = (Object) json_decode($request->geometry);

@@ -20,7 +20,7 @@
                             <p class="lead pe-md-5 me-md-5 text-white opacity-8">Aqui podras encontrar la casa de tus sueños</p>
                             <div class="buttons">
                                <a class="btn bg-gradient-primary mt-4" href="{{route('login')}}">Empieza con nosotrosw</a>
-                                <button type="button" class="btn text-white shadow-none mt-4">Read more</button>
+                                <a href="{{ route('sobre') }}" class="btn text-white shadow-none mt-4">Quienes somos</button>
                             </div>
                         </div>
                     </div>
@@ -29,7 +29,7 @@
         </header>
         <div class="card card-body blur shadow-blur mx-3 mx-md-4 mt-n6 mb-4">
 
-            <section class="py-md-7">
+            {{-- <section class="py-md-7">
                 <div class="container">
                     <div class="row justify-content-start">
                         <div class="col-md-4 ms-md-auto me-md-4">
@@ -74,7 +74,7 @@
                         </div>
                     </div>
                 </div>
-            </section>
+            </section> --}}
 
 
             <section class="py-4 position-relative">

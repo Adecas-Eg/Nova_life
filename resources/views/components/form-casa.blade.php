@@ -187,7 +187,7 @@
                     <h5 class="font-weight-bolder">Espacios</h5>
                     <div class="multisteps-form__content mt-3">
                         <div class="row">
-                            <div class="col-3">
+                            <div class="col-md-3 col-sm-4">
                                 <label>Valor del inmueble</label>
                                 <input class="multisteps-form__input form-control" type="text" name="precio"
                                     value="{{ old('precio', isset($casa) ? $casa->precio : null) }}"
@@ -195,7 +195,7 @@
                                 @include('components.validator', ['var' => 'precio'])
 
                             </div>
-                            <div class="col-6">
+                            <div class="col-md-  col-sm-4">
                                 <label>Antiguedad
                                     del inmueble (Años)</label>
                                 <input class=" multisteps-form__input form-control" type="number" name="antiguedad"
@@ -204,7 +204,7 @@
                                 @include('components.validator', ['var' => 'antiguedad'])
 
                             </div>
-                            <div class="col-3">
+                            <div class="col-md-3  col-sm-4">
                                 {{-- cambiar amunto o decremento --}}
                                 <label>N° Baños</label>
                                 <input class="multisteps-form__input form-control" type="number"
@@ -214,7 +214,7 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-6">
+                            <div class="col-md-6  col-sm-4">
                                 {{-- cambiar a text area --}}
                                 <label>N° Parqueaderos</label>
                                 <input class="multisteps-form__input form-control" type="number"
@@ -223,7 +223,7 @@
                                 @include('components.validator', ['var' => 'parqueaderos'])
 
                             </div>
-                            <div class="col-6">
+                            <div class="col-md-6  col-sm-4">
                                 {{-- cambiar a text area --}}
                                 <label>Area
                                     m<sup>2</sup></label>
@@ -233,7 +233,7 @@
                                     @include('components.validator', ['var' => 'area'])
                                 </div>
                             </div>
-                            <div class="col-6">
+                            <div class="col-md-6  col-sm-4">
                                 <div class="form-group">
                                     {{-- cambiar a text area --}}
                                     <label for="asas" class="form-control-label">N° Pisos</label>
@@ -243,7 +243,7 @@
                                     @include('components.validator', ['var' => 'pisos'])
                                 </div>
                             </div>
-                            <div class="col-6">
+                            <div class="col-md-6  col-sm-4">
                                 <div class="form-group">
                                     {{-- cambiar a text area --}}
                                     <label for="asas" class="form-control-label">Reccorido 3d</label>
